@@ -1,0 +1,62 @@
+/*
+ 1. Sass/less
+ */
+ 
+.ac-header {
+    border-bottom: 3px solid #f4f3fa;
+}
+
+.ac-line {
+    border-bottom: 3px solid #f4f3fa;
+    width: 50%;
+}
+
+
+.ac-circle{
+
+    width: 15px;
+    height: 15px;
+    margin-right: 2px;
+    justify-content: center;
+    text-align: center;
+    background: tomato;
+    
+    border-radius: 50%;
+    
+    display:inline-block;
+}
+
+.ac-logout {
+    border-radius: 30px;
+    color: #477eff;
+   
+    padding-left:  1.5rem ;
+    padding-right: 1.5rem ;
+    
+
+}
+
+.ac-addpostion {
+    color: #477eff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color:  #477eff;
+}
+
+
+.w-15 {
+    width: 15%;
+}
+
+.ac-column {
+    border-left: 1px solid #477eff;
+    ;
+}
+
+.ac-addphoto {
+    
+    bottom: 10%;
+    left: 45%;
+    transform: translateX(-45%);
+}
