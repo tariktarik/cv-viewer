@@ -1,0 +1,111 @@
+/*
+ 1. Sass
+     - change default bootstrap SM? breake point
+     - variables for colors, some width, height, for fonts
+ */
+
+.ac-header {
+    border-bottom: 3px solid #f4f3fa;
+}
+
+.ac-line {
+    border-bottom: 3px solid #f4f3fa;
+    width: 65%;
+}
+
+
+.ac-circle{
+
+    width: 15px;
+    height: 15px;
+    
+    
+    border-radius: 50%;
+    border: 1px solid lightgray;
+    display:inline-block;
+}
+
+.active-circle-skill {
+    background: #004efd;
+}
+
+.ac-logout {
+    border-radius: 30px;
+    color: #477eff;
+   
+    padding-left:  1.5rem ;
+    padding-right: 1.5rem ;
+    
+
+}
+
+.ac-addpostion {
+    color: #477eff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color:  #477eff;
+}
+
+
+.ac-w-18 {
+    width: 18%;
+}
+
+.ac-column {
+    border-left: 1px solid #d7ecf4;
+}
+
+.ac-addphoto {
+    position: relative;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+ ul.timeline {
+    list-style-type: none;
+    padding-inline-start: 0px;
+
+
+}
+
+ li.event::before { 
+    display: inline-block;
+      content: '';
+      border-radius: 0.375rem;
+      height: 0.75rem;
+      width: 0.75rem;
+      left: -20px;
+      top: 24px;
+      position: relative;
+      margin-right: 0.5rem;
+      background-color: #000;
+
+  }  
+ 
+  .vertical-line {
+      position: absolute;
+      border-left: 2px solid black;
+      height: 190px;
+      left: -7.5px;
+  }
+
+
+
+@media (max-width: 767px){
+    .ac-column {
+        border-top: 1px solid #d7ecf4;
+        border-left: none;
+        padding-left: 0;
+    }
+
+    ul.timeline {
+        list-style-type: none;
+        padding-inline-start: 0px;
+        
+    }
+    
+}
+

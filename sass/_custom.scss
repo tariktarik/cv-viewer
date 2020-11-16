@@ -1,0 +1,100 @@
+$acPrimaryColor: #007bff; //Default #007bff
+$acNavbarLinksColor: #477eff; // #477eff
+$acNavbarLinksColorHover: rgba(0, 0, 0, 0.7); //rgba(0,0,0,.7)
+$acBorderColor: #f4f3fa; //#f4f3fa
+$acActiveCircleSkillColor: #004efd; //#004efd
+$acCircleSkillBorderColor: #d3d3d3; //d3d3d3
+$acLogoutButtonBackgroundColor: #f8f9fa;
+$acLogoutButtonBorderColor: #f8f9fa;
+
+$theme-colors: (
+  primary: $acPrimaryColor,
+);
+
+$link-color: $acNavbarLinksColor;
+$navbar-light-color: $acNavbarLinksColor;
+$navbar-light-hover-color: $acNavbarLinksColorHover;
+
+.ac-header {
+  border-bottom: 3px solid $acBorderColor;
+}
+
+.ac-line {
+  border-bottom: 3px solid $acBorderColor;
+  width: 65%;
+}
+
+.ac-circle-skill {
+  width: 15px;
+  height: 15px;
+
+  border-radius: 50%;
+  border: 1px solid $acCircleSkillBorderColor;
+  display: inline-block;
+}
+
+.ac-active-circle-skill {
+  background: $acActiveCircleSkillColor;
+}
+/* ac-logout i ac-addposition specificity problem!?*/
+li.nav-item button.ac-logout {
+  border-radius: 30px;
+  color: $acNavbarLinksColor;
+}
+
+.row button.ac-addposition {
+  color: $acNavbarLinksColor;
+}
+
+.ac-w-18 {
+  width: 18%;
+}
+
+.ac-column {
+  border-left: 1px solid #d7ecf4;
+}
+
+.ac-addphoto {
+  position: relative;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+ul.timeline {
+  list-style-type: none;
+  padding-inline-start: 0px;
+}
+
+li.event::before {
+  display: inline-block;
+  content: "";
+  border-radius: 0.375rem;
+  height: 0.75rem;
+  width: 0.75rem;
+  left: -20px;
+  top: 24px;
+  position: relative;
+  margin-right: 0.5rem;
+  background-color: #000;
+}
+
+.vertical-line {
+  position: absolute;
+  border-left: 2px solid black;
+  height: 190px;
+  left: -7.5px;
+}
+
+@media (max-width: 767px) {
+  .ac-column {
+    border-top: 1px solid #d7ecf4;
+    border-left: none;
+    padding-left: 0;
+  }
+
+  ul.timeline {
+    list-style-type: none;
+    padding-inline-start: 0px;
+  }
+}
