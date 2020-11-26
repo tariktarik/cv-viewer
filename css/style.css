@@ -8,6 +8,10 @@
   width: 65%;
 }
 
+.ac-w-25 {
+  width: 25%;
+}
+
 .ac-circle-skill {
   width: 15px;
   height: 15px;
@@ -80,6 +84,14 @@ li.event::before {
   ul.timeline {
     list-style-type: none;
     padding-inline-start: 0px;
+  }
+
+  .ac-w-18 {
+    width: 21%;
+  }
+
+  .ac-w-25 {
+    width: 21%;
   }
 }
 /*!
