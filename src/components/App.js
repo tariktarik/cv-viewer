@@ -37,7 +37,7 @@ function App() {
                   <Experiences />
                   <LanguageSkills />
                   <JobSkills />
-                  {<Educations />}
+                  <Educations />
                   <MyTraits />
                 </div>
                 <div
