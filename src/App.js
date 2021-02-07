@@ -1,7 +1,7 @@
 function App() {
   return (
     <>
-    <div classNameName="container-fluid">
+    <div className="container-fluid">
       <div className="row ac-header">
         <div className="col-md-10 offset-md-1 p-0">
           <nav className="navbar navbar-light navbar-expand-sm">
