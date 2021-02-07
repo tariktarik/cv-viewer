@@ -1,11 +1,11 @@
 import React from 'react';
 
-function AddPhoto() {
+function AddPhoto({photoUrl}) {
     return(
         <div className="row mt-3 position-relative">
                     <img
                       className="img-fluid w-100 rounded"
-                      src="https://via.placeholder.com/300x300?"
+                      src={photoUrl}
                       alt=""
                     />
 

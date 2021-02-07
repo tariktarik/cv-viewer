@@ -1,12 +1,13 @@
 import React from 'react';
-
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 function Nav() {
 
     return (
+    <Router>
     <nav className="navbar navbar-light navbar-expand-sm">
-    <a className="navbar-brand" href="#">
+    <Link to={"#"} className="navbar-brand">
       <img
-        src="img/logo.png"
+        src="logo.png"
         width="60"
         height="60"
         className="d-inline-block mr-3"
@@ -14,7 +15,7 @@ function Nav() {
         loading="lazy"
       />
       Ant Colony
-    </a>
+    </Link>
     <button
       className="navbar-toggler"
       type="button"
@@ -27,13 +28,13 @@ function Nav() {
       <ul className="navbar-nav w-100 justify-content-center text-nowrap">
       
         <li className="nav-item active">
-          <a className="nav-link" href="#">Create CV</a>
+          <Link to={"#"}  className="nav-link">Create CV</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">My drafts</a>
+          <Link to={"#"}  className="nav-link" >My drafts</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Instructions</a>
+          <Link to={"#"}  className="nav-link">Instructions</Link>
         </li>
       </ul>
       <ul className="nav navbar-nav ml-auto justify-content-end">
@@ -45,6 +46,7 @@ function Nav() {
       </ul>
     </div>
   </nav>
+  </Router>
     )
 }
 
