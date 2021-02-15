@@ -8,7 +8,7 @@ function LanguageSkills({languageSkills}) {
                     <h2>Language Skills</h2>
         </div>
          {languageSkills.map((languageSkill) => 
-          <LanguageSkill language={languageSkill.language} skill={languageSkill.grade} />
+          <LanguageSkill language={languageSkill.language} skill={languageSkill.grade} key={languageSkill.language}/>
          )}
                  
             </>

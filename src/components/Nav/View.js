@@ -1,20 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-function Nav() {
-
+function Nav({nav}) {
+    const {username, profilePicture} = nav;
     return (
     <Router>
     <nav className="navbar navbar-light navbar-expand-sm">
     <Link to={"#"} className="navbar-brand">
       <img
-        src="logo.png"
+        src={profilePicture ? profilePicture : 'logo.png'}
         width="60"
         height="60"
         className="d-inline-block mr-3"
         alt=""
         loading="lazy"
       />
-      Ant Colony
+      {username ? username : 'AntColony'}
     </Link>
     <button
       className="navbar-toggler"

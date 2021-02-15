@@ -9,7 +9,8 @@ function JobSkills({jobSkills}) {
       <div className="row mt-5">
         <h2>Job Skills</h2>
       </div>
-      {jobSkills.map((jobSkill => <JobSkill skill={jobSkill.skill} grade={jobSkill.grade} />))}
+      {jobSkills.map((jobSkill => <JobSkill jobSkill={jobSkill} key={jobSkill.skill} />))}
+      {/* skill={jobSkill.skill} grade={jobSkill.grade} */}
       
       </>
     )

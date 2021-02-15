@@ -9,7 +9,7 @@ function MyTraits({traits}){
                   </div>
                   <div className="row mt-2 mb-5">
                   {traits.map((trait) => (
-                    <Trait trait={trait}/>
+                    <Trait trait={trait} key={trait}/>
                   ))}
                   </div>
                   </>

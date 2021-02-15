@@ -8,7 +8,12 @@ function Projects({ projects }) {
                 <h2>Experiences / Projects</h2>
             </div>
             {projects.map((project) =>
-                <Project company={project.company} position={project.position} duration={project.duration} description={project.description} />
+                <Project 
+                company={project.company} 
+                position={project.position} 
+                duration={project.duration} 
+                description={project.description}
+                key={project.company + project.position} />
             )}
 
         </>

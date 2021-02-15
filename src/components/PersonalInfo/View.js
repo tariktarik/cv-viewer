@@ -1,7 +1,7 @@
 import React from 'react';
 
-function PersonalInfo({dob, location}) {
-
+function PersonalInfo({personalInfo}) {
+    const {dob, location} = personalInfo;
     return (
         <div className="row mt-5 list-group">
         <h2>Personal info</h2>

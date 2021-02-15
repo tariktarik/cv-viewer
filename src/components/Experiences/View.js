@@ -8,7 +8,7 @@ function Experiences({experiences}) {
                     <h2>Experience</h2>
                   </div>
                   {experiences.map((experience) => (
-                  <Experience experience={experience} />
+                  <Experience experience={experience} key={experience.position}/>
                   ))}
                   
           </>

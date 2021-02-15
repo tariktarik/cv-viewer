@@ -1,6 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function AddPhoto({photoUrl}) {
+
+    const [isHidden, setIsHidden] = useState(true);
+    function toggleHidden(){
+      setIsHidden(false);
+    }
+
+    function updatePhoto(){
+      /* axios.post to the api */
+      setIsHidden(true);
+    }
+
+    function handleChange(e) {
+      let newUrl = e.target.value;
+      console.log(newUrl)
+      
+    }
     return(
         <div className="row mt-3 position-relative">
                     <img
@@ -9,9 +25,14 @@ function AddPhoto({photoUrl}) {
                       alt=""
                     />
 
-                    <button className="btn btn-dark position-absolute ac-addphoto">
+                    {!isHidden || <button className="btn btn-dark position-absolute ac-addphoto" onClick={toggleHidden}>
                       Add Photo
-                    </button>
+                    </button>}
+                    {isHidden || 
+                    <div>
+                    <input type="input" onChange={handleChange}/>
+                    <button type="submit" onClick={updatePhoto}>Update</button>
+                    </div>}
                   </div>
     )
 }

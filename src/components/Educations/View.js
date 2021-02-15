@@ -10,7 +10,8 @@ function Educations({ educations }) {
           <Education
             school={education.school}
             degree={education.degree}
-            duration={education.period} />
+            duration={education.period}
+            key={education.school + education.degree} />
         )}
       </ul>
     </div>
