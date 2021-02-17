@@ -27,8 +27,8 @@ function App() {
     ...data,
     firstName: newData?.newfirstName,
     lastName: newData?.newlastName,
-    position: newData?.position,
-    email: newData?.email
+    position: newData?.newposition,
+    email: newData?.newemail
    })
    console.log("TRIGER IN APP: ", newData)
 

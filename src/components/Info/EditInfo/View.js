@@ -40,7 +40,7 @@ function EditInfo({ info, handleInfoChange }) {
 
             <input
                 type="text"
-                name="newpostion"
+                name="newposition"
                 value={editInfo.newposition}
                 placeholder={position}
                 onChange={getNewValue}
