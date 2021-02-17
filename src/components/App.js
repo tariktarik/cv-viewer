@@ -7,14 +7,35 @@ import MainContainer from './MainContainer/View'
 
 function App() {
   const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState({});
+  const [data, setData] = useState(null);
+
+  const [isEditMode, setEditMode] = useState(true);
+
+  /* const [inputFields, setInputFields] = useState(data);
+  console.log(inputFields); */
 
   useEffect(() => {
     axios.get('http://localhost:5000/resumes/5fbee248eb620e488cfc11f8')
       .then(response => setData(response.data))
-       setLoading(false);
+    setLoading(false);
   }, [])
 
+  
+  const handleInfoChange = (newData) => {
+   setData(
+    {
+    ...data,
+    firstName: newData?.newfirstName,
+    lastName: newData?.newlastName,
+    position: newData?.position,
+    email: newData?.email
+   })
+   console.log("TRIGER IN APP: ", newData)
+
+
+  }
+  
+ 
 
 
 
@@ -22,6 +43,13 @@ function App() {
     return <div className="App">Loading...</div>;
 
   }
+  /*  
+     function addexpfield() {
+       setData({
+         ...data,
+         experiencs: ...data.exp, {  id: uuid, duration: '', position: ''}
+       })
+     } */
 
   return (
 
@@ -38,29 +66,10 @@ function App() {
 
         />
         <MainContainer
-          info={
-            {
-              firstName: data.firstName,
-              lastName: data.lastName,
-              position: data.position,
-              email: data.email
-            }
-          }
-          quote={data.quote}
-          photoUrl={data.picture}
-          personalInfo={
-            {
-              dob: data.dob,
-              location: data.pob
-            }
-          }
-          experiences={data.experiences || []}
-          languageSkills={data.languages || []}
-          jobSkills={data.jobSkills || []}
-          educations={data.education || []}
-          traits={data.myTraits || []}
-          projects={data.experiencesProjects || []}
-          biography={data.biography || []}
+          handleInfoChange={handleInfoChange}
+          setEditMode={setEditMode}
+          isEditMode={isEditMode}
+          data={data}
         />
       </div>
     </>
