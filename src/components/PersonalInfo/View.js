@@ -1,16 +1,16 @@
 import React from 'react';
+import EditPersonalInfo from './EditPersonalInfo/View';
+import PreviewPersonalInfo from './PreviewPersonalInfo/View'
 
-function PersonalInfo({personalInfo}) {
-    const {dob, location} = personalInfo;
-    return (
-        <div className="row mt-5 list-group">
-        <h2>Personal info</h2>
-        <h6 className="mb-0">Born</h6>
-        <p>{dob}</p>
-        <p className="mb-0">Birth place</p>
-        <p>{location}</p>
-      </div>
-    )
+function PersonalInfo({ personalInfo, toggleView, isEditMode, handlePersonalInfoChange }) {
+
+  return (
+    <div className="row mt-5 list-group">
+      <h2>Personal info</h2>
+      {isEditMode ? <EditPersonalInfo toggleView={toggleView} personalInfo={personalInfo} handlePersonalInfoChange={handlePersonalInfoChange} />
+        : <PreviewPersonalInfo personalInfo={personalInfo} />}
+    </div>
+  )
 }
 
 export default PersonalInfo;

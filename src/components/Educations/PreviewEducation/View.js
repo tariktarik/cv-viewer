@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Education({school, degree, duration}) {
+function PreviewEducation({school, degree, duration}) {
 
 return(
     <li className="event">
@@ -25,4 +25,4 @@ return(
 )
 }
 
-export default Education;
+export default PreviewEducation;
