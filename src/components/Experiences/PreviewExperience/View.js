@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Experience({experience}) {
+function PreviewExperience({experience}) {
 
  return(
     <div className="row mt-2 ac-line flex-column" >
@@ -13,4 +13,4 @@ function Experience({experience}) {
  )
 }
 
-export default Experience;
+export default PreviewExperience;
