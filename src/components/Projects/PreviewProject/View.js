@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Project({company, position, duration, description}) {
+function PreviewProject({company, position, period, description}) {
     return(
         <div className="row d-flex flex-column mt-5">
         <div className="text-muted">{company}</div>
@@ -8,7 +8,7 @@ function Project({company, position, duration, description}) {
           <h3 className="mb-0">{position}</h3>
         </div>
         <div className="row justify-content-end w-100 ml-0">
-          <span className="mb-3">{duration}</span>
+          <span className="mb-3">{period}</span>
         </div>
         <div>
           <p className="pr-4">
@@ -19,4 +19,4 @@ function Project({company, position, duration, description}) {
     )
 }
 
-export default Project;
+export default PreviewProject;

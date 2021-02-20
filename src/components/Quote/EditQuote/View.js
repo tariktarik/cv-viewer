@@ -15,7 +15,7 @@ function EditQuote({quote, toggleView, handleQuoteChange}) {
 
     useEffect(() => {handleQuoteChange(editQuote)}, [editQuote])
     return (
-        <>
+    <>
             <input
                 className="form-control"
                 type="text"

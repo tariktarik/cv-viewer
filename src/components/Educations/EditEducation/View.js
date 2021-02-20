@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-function EditEducations({ toggleView, id, school, degree, duration, handleEducationsChange }) {
+function EditEducations({ toggleView, id, school, degree, period, handleEducationsChange }) {
     const [editEducations, setEducations] = useState({
         newid: id,
         newschool: school,
         newdegree: degree,
-        newduration: duration,
+        newperiod: period,
 
     });
 
@@ -39,9 +39,9 @@ function EditEducations({ toggleView, id, school, degree, duration, handleEducat
                 
                 className="form-control"
                 type="text"
-                name={'newduration'}
-                value={editEducations.newduration}
-                placeholder={duration}
+                name={'newperiod'}
+                value={editEducations.newperiod}
+                placeholder={period}
                 onChange={getNewValue}
             />
             <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>

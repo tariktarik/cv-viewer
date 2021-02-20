@@ -97,28 +97,96 @@ function App() {
   }
 
   const handleExperiencesChange = (newData) => {
-    setData(
-      {
-        ...data,
-        duration: newData?.newdob,
+    const updatedItem = data.experiences.map((item) => {
+      return item._id === newData.newid ? { ...item, duration: newData.newduration, position: newData.newposition } : item;
+    })
 
-      })
-
+    setData({
+      ...data, experiences: updatedItem
+    })
 
   }
 
   const handleEducationsChange = (newData) => {
     const updatedItem = data.education.map((item) => {
-      console.log(item)
-      return item._id === newData.newid ? { ...item, school: newData.newschool } : item;
+      return item._id === newData.newid ? { ...item, school: newData.newschool, degree: newData.newdegree, period: newData.newperiod } : item;
     })
-    console.log("update ", updatedItem)
+
     setData({
       ...data, education: updatedItem
-     })
+    })
 
   }
 
+  const handleLanguageSkillsChange = (newData) => {
+
+    const updatedItem = data.languages.map((item) => {
+
+      return item._id === newData.newid ? {
+        ...item,
+        language: newData.newlanguage,
+        grade: newData.newgrade
+      } : item;
+    })
+
+    setData({
+      ...data, languages: updatedItem
+    })
+
+
+  }
+
+  const handleJobSkillsChange = (newData) => {
+
+    const updatedItem = data.jobSkills.map((item) => {
+
+      return item._id === newData.newid ? {
+        ...item,
+        skill: newData.newskill,
+        grade: newData.newgrade
+      } : item;
+    })
+
+    setData({
+      ...data, jobSkills: updatedItem
+    })
+
+
+  }
+
+  const handleProjectsChange = (newData) => {
+     console.log('newData: ', newData)
+    const updatedItem = data.experiencesProjects.map((item) => {
+
+      return item._id === newData.newid ? {
+        ...item,
+        company: newData.newcompany,
+        position: newData.newposition,
+        period: newData.newperiod,
+        description: newData.newdescription
+      } : item;
+    })
+
+    setData({
+      ...data, experiencesProjects: updatedItem
+    })
+
+
+  }
+
+  const handleMyTraitsChange = (newData) => {
+
+    const updatedItem = data.myTraits.map((item) => {
+
+      return item._id === newData.newid ? { ...item, trait: newData.newtrait } : item;
+    })
+
+    setData({
+      ...data, myTraits: updatedItem
+    })
+
+
+  }
   if (isLoading) {
     return <div className="App">Loading...</div>;
 
@@ -158,7 +226,10 @@ function App() {
 
           handleExperiencesChange={handleExperiencesChange}
           handleEducationsChange={handleEducationsChange}
-
+          handleLanguageSkillsChange={handleLanguageSkillsChange}
+          handleJobSkillsChange={handleJobSkillsChange}
+          handleProjectsChange={handleProjectsChange}
+          handleMyTraitsChange={handleMyTraitsChange}
 
         />
       </div>

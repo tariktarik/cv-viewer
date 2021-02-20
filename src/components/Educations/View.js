@@ -14,17 +14,16 @@ function Educations({ educations, isEditMode, handleEducationsChange, toggleView
           id={education._id}
           school={education.school}
           degree={education.degree}
-          duration={education.period}
+          period={education.period}
           key={education._id}
           handleEducationsChange={handleEducationsChange}
 
         />
         :
           <PreviewEducation
-            id={education._id}
             school={education.school}
             degree={education.degree}
-            duration={education.period}
+            period={education.period}
             key={education._id}
           />
         )}

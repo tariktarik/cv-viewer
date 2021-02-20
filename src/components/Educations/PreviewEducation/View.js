@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PreviewEducation({school, degree, duration}) {
+function PreviewEducation({school, degree, period}) {
 
 return(
     <li className="event">
@@ -19,7 +19,7 @@ return(
                         </p>
                         <p>
                           <span className="d-block text-muted">From - To</span>
-                          <span className="d-block">{duration}</span>
+                          <span className="d-block">{period}</span>
                         </p>
                       </li>
 )

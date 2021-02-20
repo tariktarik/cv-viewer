@@ -16,32 +16,26 @@ function Experiences({ experiences, isEditMode, toggleView, handleExperiencesCha
             <div className="row mt-5">
                 <h2>Experience</h2>
             </div>
-            {/*  {viewVode =  edit ? (
-(               <inpi
-z
-                  ) : )} */}
+
             {experiences.map((experience) => (
                 isEditMode ?
                     <EditExperience
                         key={experience._id}
+                        id={experience._id}
                         isEditMode={isEditMode}
                         toggleView={toggleView}
                         handleExperiencesChange={handleExperiencesChange}
-                        experience={experience}
+                        duration={experience.duration}
+                        position={experience.position}
                     /> :
-                    <PreviewExperience 
-                    experience={experience} 
-                    key={experience._id} 
+                    <PreviewExperience
+                        duration={experience.duration}
+                        position={experience.position}
+                        key={experience._id}
                     />
             ))}
 
-
-            {/* {experiences.map((experience) => (
-                  <ExperienceInput experience={experience} key={experience.position} handleChange={handleExpChange} />
-                  ))} */}
-
         </>
-        /*  addfield('experiences') */
     )
 }
 

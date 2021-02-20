@@ -1,6 +1,6 @@
 import React from 'react';
 
-function JobSkill({ jobSkill }) {
+function PreviewJobSkill({ jobSkill }) {
   const { skill, grade } = jobSkill;
   let skills = [];
 
@@ -22,4 +22,4 @@ function JobSkill({ jobSkill }) {
   )
 }
 
-export default JobSkill;
+export default PreviewJobSkill;
