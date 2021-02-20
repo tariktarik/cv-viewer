@@ -1,7 +1,8 @@
 import React from 'react';
-import Trait from './Trait/View';
+import EditTrait from './EditTrait/View'
+import PreviewTrait from './PreviewTrait/View';
 
-function MyTraits({traits}){
+function MyTraits({traits, isEditMode, toggleView, handleMyTraitsChange}){
     return(
         <>
         <div className="row mt-5">
@@ -9,7 +10,10 @@ function MyTraits({traits}){
                   </div>
                   <div className="row mt-2 mb-5">
                   {traits.map((trait) => (
-                    <Trait trait={trait} key={trait}/>
+                    isEditMode ? 
+                    <EditTrait trait={trait.trait} id={trait._id} key={trait._id} toggleView={toggleView} handleMyTraitsChange={handleMyTraitsChange}/>
+                    :
+                    <PreviewTrait trait={trait.trait} key={trait._id}/>
                   ))}
                   </div>
                   </>

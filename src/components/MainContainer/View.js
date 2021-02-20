@@ -25,6 +25,10 @@ function MainContainer(
         handlePersonalInfoChange,
         handleExperiencesChange,
         handleEducationsChange,
+        handleLanguageSkillsChange,
+        handleJobSkillsChange,
+        handleProjectsChange,
+        handleMyTraitsChange,
     }) {
 
     if (!data) {
@@ -71,43 +75,62 @@ function MainContainer(
                     <div className="col-md-12 justify-content-center">
                         <div className="row">
                             <div className="col-md-4 pr-md-5 d-flex flex-column">
-                                <Picture 
-                                picture={picture} 
-                                toggleView={toggleView} 
-                                isEditMode={isEditMode}
-                                handlePictureChange={handlePictureChange}/>
-                                <PersonalInfo 
-                                personalInfo={{ dob, pob }} 
-                                isEditMode={isEditMode}
-                                toggleView={toggleView}
-                                handlePersonalInfoChange={handlePersonalInfoChange}
-                                />
-                                <Experiences 
-                                experiences={experiences}
-                                isEditMode={isEditMode}
-                                toggleView={toggleView}
-                                handleExperiencesChange={handleExperiencesChange}
-                              />
-                                <LanguageSkills languageSkills={languages} />
-                                <JobSkills jobSkills={jobSkills} />
-                                <Educations 
-                                educations={education}
-                                isEditMode={isEditMode}
-                                toggleView={toggleView}
-                                handleEducationsChange={handleEducationsChange} 
-                                />
-                                <MyTraits traits={myTraits} />
-                            </div>
-                            <div
-                                className="col-md-8 ac-column d-flex flex-column pl-md-5 p-3 mt-sm-5 mt-md-0 d-sm-block"
-                            >
-                                <Biography
+                                <Picture
+                                    picture={picture}
+                                    toggleView={toggleView}
+                                    isEditMode={isEditMode}
+                                    handlePictureChange={handlePictureChange} />
+                                <PersonalInfo
+                                    personalInfo={{ dob, pob }}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
+                                    handlePersonalInfoChange={handlePersonalInfoChange}
+                                />
+                                <Experiences
+                                    experiences={experiences}
+                                    isEditMode={isEditMode}
+                                    toggleView={toggleView}
+                                    handleExperiencesChange={handleExperiencesChange}
+                                />
+                                <LanguageSkills
+                                    languageSkills={languages}
+                                    isEditMode={isEditMode}
+                                    toggleView={toggleView}
+                                    handleLanguageSkillsChange={handleLanguageSkillsChange}
+                                />
+                                <JobSkills
+                                    jobSkills={jobSkills}
+                                    isEditMode={isEditMode}
+                                    toggleView={toggleView}
+                                    handleJobSkillsChange={handleJobSkillsChange}
+                                />
+                                <Educations
+                                    educations={education}
+                                    isEditMode={isEditMode}
+                                    toggleView={toggleView}
+                                    handleEducationsChange={handleEducationsChange}
+                                />
+                                <MyTraits
+                                    traits={myTraits}
+                                    isEditMode={isEditMode}
+                                    toggleView={toggleView}
+                                    handleMyTraitsChange={handleMyTraitsChange}
+                                />
+                            </div>
+                            <div className="col-md-8 ac-column d-flex flex-column 
+                            pl-md-5 p-3 mt-sm-5 mt-md-0 d-sm-block">
+                                <Biography
                                     biography={biography}
+                                    isEditMode={isEditMode}
+                                    toggleView={toggleView}
                                     handleBiographyChange={handleBiographyChange}
                                 />
-                                <Projects projects={experiencesProjects} />
+                                <Projects
+                                    projects={experiencesProjects}
+                                    isEditMode={isEditMode}
+                                    toggleView={toggleView}
+                                    handleProjectsChange={handleProjectsChange}
+                                />
 
                             </div>
                         </div>

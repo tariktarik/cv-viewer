@@ -1,33 +1,22 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
-function EditExperience({experience, toggleView, handleExperiencesChange}) {
-    const { _id, duration } = experience;
+function EditExperience({ id, duration, position, toggleView, handleExperiencesChange }) {
     const [editExperiences, setExperiences] = useState({
-       /*  newposition: position, */
+        newid: id,
         newduration: duration,
-        
+        newposition: position,
     });
-    
-    
-    const getNewValue = (e) => {
-       
-        setExperiences(editExperiences => ({ ...editExperiences, [e.target.name]: e.target.value }))
 
+
+    const getNewValue = (e) => {
+        setExperiences(editExperiences => ({ ...editExperiences, [e.target.name]: e.target.value }))
     }
 
-    useEffect(() => {handleExperiencesChange(editExperiences)}, [editExperiences]) /* Linter Error without, with infinite loop [editInfo , handleInfoChange] */
+    useEffect(() => { handleExperiencesChange(editExperiences) }, [editExperiences])
 
-   
+
     return (
-        <div className="row" /* key={_id} */>
-            {/* <input
-                className="form-control"
-                type="text"
-                name="newposition"
-                value={editExperiences.newposition}
-                placeholder={position}
-                onChange={getNewValue}
-            /> */}
+        <div className="row">
 
             <input
                 className="form-control"
@@ -35,6 +24,15 @@ function EditExperience({experience, toggleView, handleExperiencesChange}) {
                 name={`newduration`}
                 value={editExperiences.newduration}
                 placeholder={duration}
+                onChange={getNewValue}
+            />
+
+            <input
+                className="form-control"
+                type="text"
+                name={`newposition`}
+                value={editExperiences.newposition}
+                placeholder={position}
                 onChange={getNewValue}
             />
 
