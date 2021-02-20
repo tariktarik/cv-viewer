@@ -18,17 +18,7 @@ function MainContainer(
         toggleView,
         isEditMode,
         data,
-        handleInfoChange,
-        handleQuoteChange,
-        handleBiographyChange,
-        handlePictureChange,
-        handlePersonalInfoChange,
-        handleExperiencesChange,
-        handleEducationsChange,
-        handleLanguageSkillsChange,
-        handleJobSkillsChange,
-        handleProjectsChange,
-        handleMyTraitsChange,
+        handleChange,
     }) {
 
     if (!data) {
@@ -62,13 +52,13 @@ function MainContainer(
                     info={{ firstName, lastName, position, email }}
                     isEditMode={isEditMode}
                     toggleView={toggleView}
-                    handleInfoChange={handleInfoChange}
+                    handleChange={handleChange}
                 />
                 <Quote
                     quote={quote}
                     isEditMode={isEditMode}
                     toggleView={toggleView}
-                    handleQuoteChange={handleQuoteChange}
+                    handleChange={handleChange}
                 />
 
                 <div className="row mt-5">
@@ -79,42 +69,43 @@ function MainContainer(
                                     picture={picture}
                                     toggleView={toggleView}
                                     isEditMode={isEditMode}
-                                    handlePictureChange={handlePictureChange} />
+                                    handleChange={handleChange} />
                                 <PersonalInfo
                                     personalInfo={{ dob, pob }}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
-                                    handlePersonalInfoChange={handlePersonalInfoChange}
+                                    handleChange={handleChange}
                                 />
                                 <Experiences
                                     experiences={experiences}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
-                                    handleExperiencesChange={handleExperiencesChange}
+                                    handleChange={handleChange}
                                 />
                                 <LanguageSkills
                                     languageSkills={languages}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
-                                    handleLanguageSkillsChange={handleLanguageSkillsChange}
+                                    handleChange={handleChange}
                                 />
                                 <JobSkills
                                     jobSkills={jobSkills}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
-                                    handleJobSkillsChange={handleJobSkillsChange}
+                                    handleChange={handleChange}
                                 />
                                 <Educations
+                                    objname={'educations'}
                                     educations={education}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
-                                    handleEducationsChange={handleEducationsChange}
+                                    handleChange={handleChange}
                                 />
                                 <MyTraits
                                     traits={myTraits}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
-                                    handleMyTraitsChange={handleMyTraitsChange}
+                                    handleChange={handleChange}
                                 />
                             </div>
                             <div className="col-md-8 ac-column d-flex flex-column 
@@ -123,13 +114,13 @@ function MainContainer(
                                     biography={biography}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
-                                    handleBiographyChange={handleBiographyChange}
+                                    handleChange={handleChange}
                                 />
                                 <Projects
                                     projects={experiencesProjects}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
-                                    handleProjectsChange={handleProjectsChange}
+                                    handleChange={handleChange}
                                 />
 
                             </div>

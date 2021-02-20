@@ -2,7 +2,7 @@ import React from 'react';
 import EditLanguageSkill from './EditLanguageSkill/View'
 import PreviewLanguageSkill from './PreviewLanguageSkill/View';
 
-function LanguageSkills({ languageSkills, isEditMode, toggleView, handleLanguageSkillsChange }) {
+function LanguageSkills({ languageSkills, isEditMode, toggleView, handleChange }) {
     return (
         <>
             <div className="row mt-5">
@@ -15,7 +15,7 @@ function LanguageSkills({ languageSkills, isEditMode, toggleView, handleLanguage
                         language={languageSkill.language}
                         grade={languageSkill.grade}
                         toggleView={toggleView}
-                        handleLanguageSkillsChange={handleLanguageSkillsChange}
+                        handleChange={handleChange}
                         key={languageSkill._id}
                     />
                     :

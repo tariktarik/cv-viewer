@@ -1,28 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-function EditQuote({quote, toggleView, handleQuoteChange}) {
-    const [editQuote, setQuote] = useState({
-        newquote: quote,
-    });
+function EditQuote({ quote, toggleView, handleChange }) {
 
-
-    const getNewValue = (e) => {
-
-        setQuote(editQuote => ({ ...editQuote, [e.target.name]: e.target.value }))
-
-
-    }
-
-    useEffect(() => {handleQuoteChange(editQuote)}, [editQuote])
     return (
-    <>
+        <>
             <input
                 className="form-control"
                 type="text"
-                name="newquote"
-                value={editQuote.newquote}
+                name="quote"
+                value={quote}
                 placeholder={quote}
-                onChange={getNewValue}
+                onChange={handleChange}
             />
             <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
         </>

@@ -3,7 +3,7 @@ import EditJobSKill from './EditJobSkill/View';
 import PreviewJobSkill from './PreviewJobSkill/View';
 
 
-function JobSkills({ jobSkills, isEditMode, toggleView, handleJobSkillsChange }) {
+function JobSkills({ jobSkills, isEditMode, toggleView, handleChange }) {
 
   return (
     <>
@@ -17,7 +17,7 @@ function JobSkills({ jobSkills, isEditMode, toggleView, handleJobSkillsChange })
             grade={jobSkill.grade}
             id={jobSkill._id}
             toggleView={toggleView}
-            handleJobSkillsChange={handleJobSkillsChange}
+            handleChange={handleChange}
             key={jobSkill._id}
           />
           :

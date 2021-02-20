@@ -1,15 +1,7 @@
 import React from 'react';
 import PreviewExperience from './PreviewExperience/View';
 import EditExperience from './EditExperience/View'
-function Experiences({ experiences, isEditMode, toggleView, handleExperiencesChange }) {
-
-    /* const [stateExperiences, setStateExperiences] = useState(experiences);
-
-    setStateExperiences([...stateExperiences, newExperience])
-
-    function newExperience() {
-        return <Experience experience/>
-    } */
+function Experiences({ experiences, isEditMode, toggleView, handleChange }) {
 
     return (
         <>
@@ -24,7 +16,7 @@ function Experiences({ experiences, isEditMode, toggleView, handleExperiencesCha
                         id={experience._id}
                         isEditMode={isEditMode}
                         toggleView={toggleView}
-                        handleExperiencesChange={handleExperiencesChange}
+                        handleChange={handleChange}
                         duration={experience.duration}
                         position={experience.position}
                     /> :
