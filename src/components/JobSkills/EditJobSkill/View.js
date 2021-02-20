@@ -1,43 +1,36 @@
-import React , { useState, useEffect } from 'react';
+import React from 'react';
 
-function EditJobSkill({id, skill, grade, toggleView, handleJobSkillsChange}){
-    const [editJobSkill, setJobSkill] = useState({
-        newid: id,
-        newskill: skill,
-        newgrade: grade,
-    });
+function EditJobSkill({ id, skill, grade, toggleView, handleChange }) {
 
-
-    const getNewValue = (e) => {
-        setJobSkill(editJobSkill => ({ ...editJobSkill, [e.target.name]: e.target.value }))
-    }
-
-    useEffect(() => { handleJobSkillsChange(editJobSkill) }, [editJobSkill])
     return (
         <div className="row">
 
-        <input
-            className="form-control"
-            type="text"
-            name={'newskill'}
-            value={editJobSkill.newskill}
-            placeholder={skill}
-            onChange={getNewValue}
-        />
+            <input
+                customid={id}
+                customobjname={'jobSkills'}
+                className="form-control"
+                type="text"
+                name={'skill'}
+                value={skill}
+                placeholder={skill}
+                onChange={handleChange}
+            />
 
-        <input
-            className="form-control"
-            type="text"
-            name={'newgrade'}
-            value={editJobSkill.newgrade}
-            placeholder={grade}
-            onChange={getNewValue}
-        />
+            <input
+                customid={id}
+                customobjname={'jobSkills'}
+                className="form-control"
+                type="text"
+                name={'grade'}
+                value={grade}
+                placeholder={grade}
+                onChange={handleChange}
+            />
 
 
-        <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
+            <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
 
-    </div>
+        </div>
     )
 }
 

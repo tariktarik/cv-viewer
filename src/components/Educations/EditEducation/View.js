@@ -1,48 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-function EditEducations({ toggleView, id, school, degree, period, handleEducationsChange }) {
-    const [editEducations, setEducations] = useState({
-        newid: id,
-        newschool: school,
-        newdegree: degree,
-        newperiod: period,
+function EditEducations({ toggleView, id, school, degree, period, handleChange }) {
 
-    });
-
-
-    const getNewValue = (e) => {
-        setEducations(editEducations => ({ ...editEducations, [e.target.name]: e.target.value}))
-    }
-
-   useEffect(() => { handleEducationsChange(editEducations) }, [editEducations])
     return (
         <div className="row mt-5">
             <input
-                
+                customid={id}
+                customobjname={'education'}
                 className="form-control"
                 type="text"
-                name={'newschool'}
-                value={editEducations.newschool}
+                name={'school'}
+                value={school}
                 placeholder={school}
-                onChange={getNewValue}
+                onChange={handleChange}
             />
             <input
-                
+                customid={id}
+                customobjname={'education'}
                 className="form-control"
                 type="text"
-                name={'newdegree'}
-                value={editEducations.newdegree}
+                name={'degree'}
+                value={degree}
                 placeholder={degree}
-                onChange={getNewValue}
+                onChange={handleChange}
             />
             <input
-                
+                customid={id}
+                customobjname={'education'}
                 className="form-control"
                 type="text"
-                name={'newperiod'}
-                value={editEducations.newperiod}
+                name={'period'}
+                value={period}
                 placeholder={period}
-                onChange={getNewValue}
+                onChange={handleChange}
             />
             <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
         </div>

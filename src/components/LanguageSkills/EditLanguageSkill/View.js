@@ -1,37 +1,30 @@
 import React, { useState, useEffect } from 'react';
 
-function EditLanguageSkill({ id, language, grade, toggleView, handleLanguageSkillsChange }) {
-    const [editLanguageSkill, setLanguageSkill] = useState({
-        newid: id,
-        newlanguage: language,
-        newgrade: grade,
-    });
+function EditLanguageSkill({ id, language, grade, toggleView, handleChange }) {
 
-
-    const getNewValue = (e) => {
-        setLanguageSkill(editLanguageSkill => ({ ...editLanguageSkill, [e.target.name]: e.target.value }))
-    }
-
-    useEffect(() => { handleLanguageSkillsChange(editLanguageSkill) }, [editLanguageSkill])
     return (
         <div className="row">
 
             <input
+                customid={id}
+                customobjname={'languages'}
                 className="form-control"
                 type="text"
-                name={'newlanguage'}
-                value={editLanguageSkill.newlanguage}
+                name={'language'}
+                value={language}
                 placeholder={language}
-                onChange={getNewValue}
+                onChange={handleChange}
             />
 
             <input
+                customid={id}
+                customobjname={'languages'}
                 className="form-control"
                 type="text"
-                name={'newgrade'}
-                value={editLanguageSkill.newgrade}
+                name={'grade'}
+                value={grade}
                 placeholder={grade}
-                onChange={getNewValue}
+                onChange={handleChange}
             />
 
 

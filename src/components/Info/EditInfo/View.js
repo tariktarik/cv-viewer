@@ -1,64 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-function EditInfo({ info, handleInfoChange, toggleView }) {
+function EditInfo({ info, handleChange, toggleView }) {
     const { firstName, lastName, position, email } = info;
-    const [editInfo, setInfo] = useState({
-        newfirstName: firstName,
-        newlastName: lastName,
-        newposition: position,
-        newemail: email
-    });
-    
-    
-    const getNewValue = (e) => {
-       
-        setInfo(editInfo => ({ ...editInfo, [e.target.name]: e.target.value }))
-        /* handleInfoChange(editInfo) */
-        console.log("TRIGER ON CHANGE: ", editInfo)
-        console.log("TRIGER ON CHANGE TARGEt: ", e.target.name)
 
-    }
-
-    useEffect(() => {handleInfoChange(editInfo)}, [editInfo]) /* Linter Error without, with infinite loop [editInfo , handleInfoChange] */
-
-   
-    
     return (
         <>
             <input
+               
                 className="form-control"
                 type="text"
-                name="newfirstName"
-                value={editInfo.newfirstName}
+                name="firstName"
+                value={firstName}
                 placeholder={firstName}
-                onChange={getNewValue}
+                onChange={handleChange}
             />
 
             <input
+              
                 className="form-control"
                 type="text"
-                name="newlastName"
-                value={editInfo.newlastName}
+                name="lastName"
+                value={lastName}
                 placeholder={lastName}
-                onChange={getNewValue}
+                onChange={handleChange}
             />
 
             <input
                 className="form-control"
                 type="text"
-                name="newposition"
-                value={editInfo.newposition}
+                name="position"
+                value={position}
                 placeholder={position}
-                onChange={getNewValue}
+                onChange={handleChange}
             />
 
             <input
                 className="form-control"
                 type="text"
-                name="newemail"
-                value={editInfo.newemail}
+                name="email"
+                value={email}
                 placeholder={email}
-                onChange={getNewValue}
+                onChange={handleChange}
             />
 
             <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>

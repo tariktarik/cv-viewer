@@ -1,57 +1,52 @@
 import React, { useState, useEffect } from 'react';
 
-function EditProject({ id, company, position, period, description, toggleView, handleProjectsChange }) {
-    const [editProject, setProject] = useState({
-        newid: id,
-        newcompany: company,
-        newposition: position,
-        newperiod: period,
-        newdescription: description
-    });
+function EditProject({ id, company, position, period, description, toggleView, handleChange }) {
 
-
-    const getNewValue = (e) => {
-        setProject(editProject => ({ ...editProject, [e.target.name]: e.target.value }))
-    }
-
-    useEffect(() => { handleProjectsChange(editProject) }, [editProject])
     return (
         <div className="row">
 
             <input
+                customid={id}
+                customobjname={'experiencesProjects'}
                 className="form-control"
                 type="text"
-                name={'newcompany'}
-                value={editProject.newcompany}
+                name={'company'}
+                value={company}
                 placeholder={company}
-                onChange={getNewValue}
+                onChange={handleChange}
             />
 
             <input
+                customid={id}
+                customobjname={'experiencesProjects'}
                 className="form-control"
                 type="text"
-                name={'newposition'}
-                value={editProject.newposition}
+                name={'position'}
+                value={position}
                 placeholder={position}
-                onChange={getNewValue}
+                onChange={handleChange}
             />
 
             <input
+                customid={id}
+                customobjname={'experiencesProjects'}
                 className="form-control"
                 type="text"
-                name={'newperiod'}
-                value={editProject.newperiod}
+                name={'period'}
+                value={period}
                 placeholder={period}
-                onChange={getNewValue}
+                onChange={handleChange}
             />
 
             <input
+                customid={id}
+                customobjname={'experiencesProjects'}
                 className="form-control"
                 type="text"
-                name={'newdescription'}
-                value={editProject.newdescription}
+                name={'description'}
+                value={description}
                 placeholder={description}
-                onChange={getNewValue}
+                onChange={handleChange}
             />
 
 

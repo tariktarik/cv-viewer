@@ -1,27 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-function EditTrait({ id, trait, handleMyTraitsChange, toggleView }) {
-    const [editMyTrait, setMyTrait] = useState({
-        newid: id,
-        newtrait: trait,
-    });
+function EditTrait({ id, trait, handleChange, toggleView }) {
 
-
-    const getNewValue = (e) => {
-        setMyTrait(editMyTrait => ({ ...editMyTrait, [e.target.name]: e.target.value }))
-
-    }
-
-    useEffect(() => { handleMyTraitsChange(editMyTrait) }, [editMyTrait])
     return (
         <>
             <input
+                customid={id}
+                customobjname={'myTraits'}
                 className="form-control"
                 type="text"
-                name={'newtrait'}
-                value={editMyTrait.newtrait}
+                name={'trait'}
+                value={trait}
                 placeholder={trait}
-                onChange={getNewValue}
+                onChange={handleChange}
             />
 
 

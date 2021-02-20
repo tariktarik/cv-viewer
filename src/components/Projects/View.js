@@ -2,7 +2,7 @@ import React from 'react';
 import EditProject from './EditProject/View'
 import PreviewProject from './PreviewProject/View';
 
-function Projects({ projects, isEditMode, toggleView, handleProjectsChange }) {
+function Projects({ projects, isEditMode, toggleView, handleChange }) {
     return (
         <>
             <div className="row mt-5">
@@ -18,7 +18,7 @@ function Projects({ projects, isEditMode, toggleView, handleProjectsChange }) {
                         key={project._id}
                         id={project._id}
                         toggleView={toggleView}
-                        handleProjectsChange={handleProjectsChange}
+                        handleChange={handleChange}
                          />
                     :
                     <PreviewProject
