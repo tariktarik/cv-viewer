@@ -1,8 +1,15 @@
 import React from 'react';
 
-function PreviewTrait({trait}) {
-    return(
-        <button className="btn btn-light mr-2">{trait}</button>
+function PreviewTrait({ traits }) {
+    return (
+
+        traits.map((trait) =>
+            
+                <button className="btn btn-light mr-2">{trait.trait}</button>
+            
+        )
+
+
     )
 }
 

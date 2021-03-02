@@ -1,17 +1,17 @@
 import React from 'react';
+import InputField from '../../InputField/View';
 
 function EditQuote({ quote, toggleView, handleChange }) {
 
     return (
         <>
-            <input
-                className="form-control"
-                type="text"
-                name="quote"
-                value={quote}
-                placeholder={quote}
-                onChange={handleChange}
-            />
+            {
+                <InputField
+                    name={'quote'}
+                    value={quote}
+                    handleChange={handleChange}
+                />
+            }
             <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
         </>
     )

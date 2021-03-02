@@ -1,17 +1,17 @@
 import React from 'react';
+import InputField from '../../InputField/View';
 
 function EditPicture({ picture, toggleView, handleChange }) {
 
   return (
     <>
-      <input
-        className="form-control"
-        type="text"
-        name="picture"
-        value={picture}
-        placeholder={picture}
-        onChange={handleChange}
-      />
+      {
+        <InputField
+          name={'picture'}
+          value={picture}
+          handleChange={handleChange}
+        />
+      }
       <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
     </>
 
