@@ -1,39 +1,27 @@
 import React from 'react';
+import InputField from '../../InputField/View';
 
-function EditEducations({ toggleView, id, school, degree, period, handleChange }) {
+function EditEducations({ toggleView, educations, handleChange }) {
 
     return (
-        <div className="row mt-5">
-            <input
-                customid={id}
-                customobjname={'education'}
-                className="form-control"
-                type="text"
-                name={'school'}
-                value={school}
-                placeholder={school}
-                onChange={handleChange}
-            />
-            <input
-                customid={id}
-                customobjname={'education'}
-                className="form-control"
-                type="text"
-                name={'degree'}
-                value={degree}
-                placeholder={degree}
-                onChange={handleChange}
-            />
-            <input
-                customid={id}
-                customobjname={'education'}
-                className="form-control"
-                type="text"
-                name={'period'}
-                value={period}
-                placeholder={period}
-                onChange={handleChange}
-            />
+        <div className="row">
+
+            {
+                educations.map((education) =>
+                    Object.keys(education).map((key) =>
+                        (key !== '_id') ?
+                            <InputField
+                                objname={'education'}
+                                id={education['_id']}
+                                key={key}
+                                name={key}
+                                value={education[key]}
+                                handleChange={handleChange}
+                            />
+                            : null
+                    )
+                )
+            }
             <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
         </div>
     )

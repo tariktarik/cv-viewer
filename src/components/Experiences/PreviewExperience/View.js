@@ -1,16 +1,22 @@
 import React from 'react';
 
-function PreviewExperience({duration, position}) {
+function PreviewExperience({ experiences }) {
 
- return(
+  return (
     <div className="row mt-2 ac-line flex-column" >
-    <p className="d-block">{duration}</p>
-    <p>
-      <span className="d-block text-muted">Position</span>
-      <span className="d-block font-weight-bold">{position}</span>
-    </p>
-  </div>
- )
+
+      { experiences.map((experience =>
+        <>
+          <p className="d-block">{experience.duration}</p>
+          <p>
+            <span className="d-block text-muted">Position</span>
+            <span className="d-block font-weight-bold">{experience.position}</span>
+          </p>
+        </>
+      ))
+      }
+    </div>
+  )
 }
 
 export default PreviewExperience;
