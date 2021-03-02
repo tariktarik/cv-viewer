@@ -19,6 +19,7 @@ function MainContainer(
         isEditMode,
         data,
         handleChange,
+        handleAddInput
     }) {
 
     if (!data) {
@@ -81,18 +82,21 @@ function MainContainer(
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
                                     handleChange={handleChange}
+                                    handleAddInput={handleAddInput}
                                 />
                                 <LanguageSkills
                                     languageSkills={languages}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
                                     handleChange={handleChange}
+                                    handleAddInput={handleAddInput}
                                 />
                                 <JobSkills
                                     jobSkills={jobSkills}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
                                     handleChange={handleChange}
+                                    handleAddInput={handleAddInput}
                                 />
                                 <Educations
                                     objname={'educations'}
@@ -100,12 +104,14 @@ function MainContainer(
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
                                     handleChange={handleChange}
+                                    handleAddInput={handleAddInput}
                                 />
                                 <MyTraits
                                     traits={myTraits}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
                                     handleChange={handleChange}
+                                    handleAddInput={handleAddInput}
                                 />
                             </div>
                             <div className="col-md-8 ac-column d-flex flex-column 
@@ -121,6 +127,7 @@ function MainContainer(
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
                                     handleChange={handleChange}
+                                    handleAddInput={handleAddInput}
                                 />
 
                             </div>

@@ -1,11 +1,28 @@
 import React from 'react';
+import InputField from '../../InputField/View';
 
-function EditExperience({ id, duration, position, toggleView, handleChange }) {
+function EditExperience({ experiences, toggleView, handleChange }) {
 
     return (
         <div className="row">
-
-            <input
+            {
+                experiences.map((experience) =>
+                    Object.keys(experience).map((key) =>
+                        (key !== '_id') ?
+                            <InputField
+                                objname={'experiences'}
+                                id={experience['_id']}
+                                key={key}
+                                name={key}
+                                value={experience[key]}
+                                handleChange={handleChange}
+                            />
+                            : null
+                    )
+                )
+            }
+            <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
+            {/* <input
                 customid={id}
                 customobjname={'experiences'}
                 className="form-control"
@@ -25,10 +42,10 @@ function EditExperience({ id, duration, position, toggleView, handleChange }) {
                 value={position}
                 placeholder={position}
                 onChange={handleChange}
-            />
+            /> */}
 
 
-            <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
+
 
         </div>
 

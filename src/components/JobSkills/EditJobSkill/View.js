@@ -20,7 +20,7 @@ function EditJobSkill({ id, skill, grade, toggleView, handleChange }) {
                 customid={id}
                 customobjname={'jobSkills'}
                 className="form-control"
-                type="text"
+                type="number"
                 name={'grade'}
                 value={grade}
                 placeholder={grade}
