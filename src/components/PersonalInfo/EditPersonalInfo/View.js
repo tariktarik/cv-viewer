@@ -1,28 +1,22 @@
 import React from 'react';
+import InputField from '../../InputField/View';
 
-function EditPersonalInfo({ personalInfo, handleChange, toggleView }) {
-    const { dob, pob } = personalInfo;
-
+function EditPersonalInfo({ dob, pob, handleChange, toggleView }) {
+       
     return (
         <>
-            <input
-                className="form-control"
-                type="text"
-                name="dob"
+
+
+            <InputField
+                name={'dob'}
                 value={dob}
-                placeholder={dob}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
-
-            <input
-                className="form-control"
-                type="text"
-                name="pob"
+            <InputField
+                name={'pob'}
                 value={pob}
-                placeholder={pob}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
-
 
             <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
 

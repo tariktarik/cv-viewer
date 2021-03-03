@@ -1,31 +1,43 @@
 import React from 'react';
 import PreviewExperience from './PreviewExperience/View';
-import EditExperience from './EditExperience/View'
-function Experiences({ experiences, isEditMode, toggleView, handleChange }) {
+import EditExperience from './EditExperience/View';
+import AddInput from '../AddInput/View';
+
+function Experiences({ experiences, isEditMode, toggleView, handleChange, handleAddInput }) {
 
     return (
         <>
-            <div className="row mt-5">
-                <h2>Experience</h2>
+            <div className="row mt-5 d-flex flex-column">
+                <h2>Experience
+                {isEditMode ?
+                        <AddInput handleAddInput={handleAddInput} objName={'experiences'} />
+                        : null
+                    }
+                </h2>
             </div>
 
-            {experiences.map((experience) => (
+
+            {experiences.map((experience) =>
                 isEditMode ?
                     <EditExperience
-                        key={experience._id}
-                        id={experience._id}
-                        isEditMode={isEditMode}
+                        objName={'experience'}
                         toggleView={toggleView}
+                        id={experience._id}
+                        position={experience.position}
+                        duration={experience.duration}
+                        key={experience._id}
                         handleChange={handleChange}
-                        duration={experience.duration}
-                        position={experience.position}
-                    /> :
+
+                    />
+                    :
                     <PreviewExperience
-                        duration={experience.duration}
                         position={experience.position}
+                        duration={experience.duration}
                         key={experience._id}
                     />
-            ))}
+
+            )}
+
 
         </>
     )

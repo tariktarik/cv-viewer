@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 import './TESTCSS.css';
 
 import Header from './Header/View';
@@ -8,7 +9,23 @@ import MainContainer from './MainContainer/View'
 function App() {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState(null);
-
+  const [error, setError] = useState({
+    quote: '',
+    picture: '',
+    biography: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    position: '',
+    dob: '',
+    pob: '',
+    experiences: { duration: '', position: '' },
+    languages: { language: '', grade: '' },
+    jobSkills: { skill: '', grade: '' },
+    education: { school: '', degree: '', period: '' },
+    myTraits: { trait: '' },
+    experiencesProjects: { company: '', position: '', period: '', description: '' }
+  })
   const [isEditMode, setEditMode] = useState(true);
 
   useEffect(() => {
@@ -20,18 +37,17 @@ function App() {
 
   const toggleView = () => setEditMode(!isEditMode);
 
-  const handleChange = (e) => {
+  const handleChange = (e, id, objname) => {
+
     const { target: { name, value } } = e;
-    const objName = e.target.attributes.customobjname.nodeValue;
-    const customid = e.target.attributes.customid.nodeValue;
 
-    if (customid) {
-      const updatedItem = data[objName].map((item) => {
-        return item._id === customid ? { ...item, [name]: value } : item;
+
+    if (id) {
+      const updatedItem = data[objname].map((item) => {
+        return item._id === id ? { ...item, [name]: value } : item;
       })
-
       setData({
-        ...data, [objName]: updatedItem
+        ...data, [objname]: updatedItem
       })
 
     } else {
@@ -40,8 +56,25 @@ function App() {
         ...data,
         [name]: value
       })
+
+
     }
+ 
   }
+
+
+  const handleAddInput = (objName) => {
+    const keysArray = Object.keys(data[objName][0]);
+    const newObj = {};
+    keysArray.forEach((ele) => {
+      newObj[ele] = '';
+    })
+
+    setData({
+      ...data, [objName]: [...data[objName], { ...newObj, _id: uuidv4() }]
+    });
+
+  };
 
   if (isLoading) {
     return <div className="App">Loading...</div>;
@@ -67,7 +100,9 @@ function App() {
           toggleView={toggleView}
           isEditMode={isEditMode}
           data={data}
+          error={error}
           handleChange={handleChange}
+          handleAddInput={handleAddInput}
         />
       </div>
     </>

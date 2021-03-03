@@ -1,39 +1,42 @@
 import React from 'react';
+import InputField from '../../InputField/View';
 
 function EditEducations({ toggleView, id, school, degree, period, handleChange }) {
 
     return (
-        <div className="row mt-5">
-            <input
-                customid={id}
-                customobjname={'education'}
+        <div className="row">
+
+            <InputField
+                id={id}
+                objname={'education'}
                 className="form-control"
                 type="text"
                 name={'school'}
                 value={school}
                 placeholder={school}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
-            <input
-                customid={id}
-                customobjname={'education'}
+            <InputField
+                id={id}
+                objname={'education'}
                 className="form-control"
                 type="text"
                 name={'degree'}
                 value={degree}
                 placeholder={degree}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
-            <input
-                customid={id}
-                customobjname={'education'}
+            <InputField
+                id={id}
+                objname={'education'}
                 className="form-control"
                 type="text"
                 name={'period'}
                 value={period}
                 placeholder={period}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
+
             <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
         </div>
     )

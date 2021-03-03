@@ -1,18 +1,19 @@
 import React from 'react';
+import InputField from '../../InputField/View';
 
 function EditTrait({ id, trait, handleChange, toggleView }) {
 
     return (
         <>
-            <input
-                customid={id}
-                customobjname={'myTraits'}
+            <InputField
+                id={id}
+                objname={'myTraits'}
                 className="form-control"
                 type="text"
                 name={'trait'}
                 value={trait}
                 placeholder={trait}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
 
 

@@ -1,14 +1,21 @@
 import React from 'react';
 import EditJobSKill from './EditJobSkill/View';
 import PreviewJobSkill from './PreviewJobSkill/View';
+import AddInput from '../AddInput/View';
 
 
-function JobSkills({ jobSkills, isEditMode, toggleView, handleChange }) {
+function JobSkills({ jobSkills, isEditMode, toggleView, handleChange, handleAddInput }) {
 
   return (
     <>
-      <div className="row mt-5">
-        <h2>Job Skills</h2>
+      <div className="row mt-5 d-flex flex-column">
+        <h2>Job Skills
+        {isEditMode ?
+            <AddInput handleAddInput={handleAddInput} objName={'jobSkills'} />
+            : null
+          }
+        </h2>
+
       </div>
       {jobSkills.map((jobSkill =>
         isEditMode ?

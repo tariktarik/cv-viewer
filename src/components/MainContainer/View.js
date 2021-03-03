@@ -12,13 +12,16 @@ import Picture from '../Picture/View';
 import Educations from '../Educations/View';
 import MyTraits from '../MyTraits/View';
 import Projects from '../Projects/View';
+import moment from 'moment';
 
 function MainContainer(
     {
         toggleView,
         isEditMode,
         data,
+        error,
         handleChange,
+        handleAddInput
     }) {
 
     if (!data) {
@@ -42,14 +45,16 @@ function MainContainer(
         biography } = data;
 
 
-
-
     return (
         <div className="container">
             <div className="col-sm-12">
                 <ActionButtons isEditMode={isEditMode} toggleView={toggleView} />
                 <Info
-                    info={{ firstName, lastName, position, email }}
+                    error={error}
+                    firstName={firstName}
+                    lastName={lastName}
+                    position={position}
+                    email={email}
                     isEditMode={isEditMode}
                     toggleView={toggleView}
                     handleChange={handleChange}
@@ -71,7 +76,8 @@ function MainContainer(
                                     isEditMode={isEditMode}
                                     handleChange={handleChange} />
                                 <PersonalInfo
-                                    personalInfo={{ dob, pob }}
+                                    dob={moment(dob).format('MMMM D, YYYY')}
+                                    pob={pob}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
                                     handleChange={handleChange}
@@ -81,18 +87,21 @@ function MainContainer(
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
                                     handleChange={handleChange}
+                                    handleAddInput={handleAddInput}
                                 />
                                 <LanguageSkills
                                     languageSkills={languages}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
                                     handleChange={handleChange}
+                                    handleAddInput={handleAddInput}
                                 />
                                 <JobSkills
                                     jobSkills={jobSkills}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
                                     handleChange={handleChange}
+                                    handleAddInput={handleAddInput}
                                 />
                                 <Educations
                                     objname={'educations'}
@@ -100,12 +109,14 @@ function MainContainer(
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
                                     handleChange={handleChange}
+                                    handleAddInput={handleAddInput}
                                 />
                                 <MyTraits
                                     traits={myTraits}
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
                                     handleChange={handleChange}
+                                    handleAddInput={handleAddInput}
                                 />
                             </div>
                             <div className="col-md-8 ac-column d-flex flex-column 
@@ -121,6 +132,7 @@ function MainContainer(
                                     isEditMode={isEditMode}
                                     toggleView={toggleView}
                                     handleChange={handleChange}
+                                    handleAddInput={handleAddInput}
                                 />
 
                             </div>

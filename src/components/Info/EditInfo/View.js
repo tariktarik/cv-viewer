@@ -1,47 +1,34 @@
 import React from 'react';
+import InputField from '../../InputField/View';
 
-function EditInfo({ info, handleChange, toggleView }) {
-    const { firstName, lastName, position, email } = info;
+function EditInfo({ error, firstName, lastName, position, email, handleChange, toggleView }) {
 
     return (
         <>
-            <input
-               
-                className="form-control"
-                type="text"
-                name="firstName"
+
+            <InputField
+                name={'firstName'}
                 value={firstName}
-                placeholder={firstName}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
-
-            <input
-              
-                className="form-control"
-                type="text"
-                name="lastName"
+            {error.firstName ? 'Popni plje' : null}
+            <InputField
+                name={'lastName'}
                 value={lastName}
-                placeholder={lastName}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
-
-            <input
-                className="form-control"
-                type="text"
-                name="position"
+            <InputField
+                name={'position'}
                 value={position}
-                placeholder={position}
-                onChange={handleChange}
+                handleChange={handleChange}
+            />
+            <InputField
+                name={'email'}
+                value={email}
+                handleChange={handleChange}
             />
 
-            <input
-                className="form-control"
-                type="text"
-                name="email"
-                value={email}
-                placeholder={email}
-                onChange={handleChange}
-            />
+
 
             <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
 

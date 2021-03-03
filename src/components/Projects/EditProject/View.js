@@ -1,52 +1,54 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import InputField from '../../InputField/View';
+import TextField from '../../TextField/View';
 
 function EditProject({ id, company, position, period, description, toggleView, handleChange }) {
 
     return (
         <div className="row">
 
-            <input
-                customid={id}
-                customobjname={'experiencesProjects'}
+            <InputField
+                id={id}
+                objname={'experiencesProjects'}
                 className="form-control"
                 type="text"
                 name={'company'}
                 value={company}
                 placeholder={company}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
 
-            <input
-                customid={id}
-                customobjname={'experiencesProjects'}
+            <InputField
+                id={id}
+                objname={'experiencesProjects'}
                 className="form-control"
                 type="text"
                 name={'position'}
                 value={position}
                 placeholder={position}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
 
-            <input
-                customid={id}
-                customobjname={'experiencesProjects'}
+            <InputField
+                id={id}
+                objname={'experiencesProjects'}
                 className="form-control"
                 type="text"
                 name={'period'}
                 value={period}
                 placeholder={period}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
 
-            <input
-                customid={id}
-                customobjname={'experiencesProjects'}
+            <TextField
+                id={id}
+                objname={'experiencesProjects'}
                 className="form-control"
                 type="text"
                 name={'description'}
                 value={description}
                 placeholder={description}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
 
 

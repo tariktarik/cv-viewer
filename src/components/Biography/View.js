@@ -1,6 +1,6 @@
 import React from 'react';
 import EditBiography from './EditBiography/View';
-import PreviewBiography from './PreviewBiography/View'
+import PreviewBiography from './PreviewBiography/View';
 
 function Biography({ biography, isEditMode, toggleView, handleChange }) {
   return (

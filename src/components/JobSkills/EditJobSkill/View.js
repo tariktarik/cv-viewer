@@ -1,30 +1,31 @@
 import React from 'react';
+import InputField from '../../InputField/View';
 
 function EditJobSkill({ id, skill, grade, toggleView, handleChange }) {
 
     return (
         <div className="row">
 
-            <input
-                customid={id}
-                customobjname={'jobSkills'}
+            <InputField
+                id={id}
+                objname={'jobSkills'}
                 className="form-control"
                 type="text"
                 name={'skill'}
                 value={skill}
                 placeholder={skill}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
 
-            <input
-                customid={id}
-                customobjname={'jobSkills'}
+            <InputField
+                id={id}
+                objname={'jobSkills'}
                 className="form-control"
-                type="text"
+                type={'number'}
                 name={'grade'}
                 value={grade}
                 placeholder={grade}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
 
 

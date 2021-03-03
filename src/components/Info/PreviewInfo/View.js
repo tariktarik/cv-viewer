@@ -1,7 +1,7 @@
 import React from 'react';
 
-function PreviewInfo({ info }) {
-    const { firstName, lastName, position, email } = info;
+function PreviewInfo({ firstName, lastName, position, email }) {
+    
     return (
         <>
             <div className="row">

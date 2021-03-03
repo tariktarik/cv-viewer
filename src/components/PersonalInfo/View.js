@@ -2,8 +2,8 @@ import React from 'react';
 import EditPersonalInfo from './EditPersonalInfo/View';
 import PreviewPersonalInfo from './PreviewPersonalInfo/View'
 
-function PersonalInfo({ personalInfo, toggleView, isEditMode, handleChange }) {
-
+function PersonalInfo({ dob, pob, toggleView, isEditMode, handleChange }) {
+   
   return (
     <div className="row mt-5 list-group">
       <h2>Personal info</h2>
@@ -11,10 +11,15 @@ function PersonalInfo({ personalInfo, toggleView, isEditMode, handleChange }) {
       {isEditMode ?
         <EditPersonalInfo
           toggleView={toggleView}
-          personalInfo={personalInfo}
+          dob={dob}
+          pob={pob}
           handleChange={handleChange}
         />
-        : <PreviewPersonalInfo personalInfo={personalInfo} />}
+        : <PreviewPersonalInfo
+          dob={dob}
+          pob={pob}
+        />
+      }
     </div>
   )
 }
