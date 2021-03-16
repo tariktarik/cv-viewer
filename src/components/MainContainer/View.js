@@ -16,7 +16,8 @@ import moment from 'moment';
 
 function MainContainer(
     {
-        toggleView,
+        editMode,
+        previewMode,
         isEditMode,
         data,
         error,
@@ -48,7 +49,7 @@ function MainContainer(
     return (
         <div className="container">
             <div className="col-sm-12">
-                <ActionButtons isEditMode={isEditMode} toggleView={toggleView} />
+                <ActionButtons isEditMode={isEditMode} editMode={editMode} previewMode={previewMode} />
                 <Info
                     error={error}
                     firstName={firstName}
@@ -56,13 +57,14 @@ function MainContainer(
                     position={position}
                     email={email}
                     isEditMode={isEditMode}
-                    toggleView={toggleView}
+                    previewMode={previewMode}
                     handleChange={handleChange}
                 />
                 <Quote
+                    error={error}
                     quote={quote}
                     isEditMode={isEditMode}
-                    toggleView={toggleView}
+                    previewMode={previewMode}
                     handleChange={handleChange}
                 />
 
@@ -71,66 +73,75 @@ function MainContainer(
                         <div className="row">
                             <div className="col-md-4 pr-md-5 d-flex flex-column">
                                 <Picture
+                                    error={error}
                                     picture={picture}
-                                    toggleView={toggleView}
+                                    previewMode={previewMode}
                                     isEditMode={isEditMode}
                                     handleChange={handleChange} />
                                 <PersonalInfo
+                                    error={error}
                                     dob={moment(dob).format('MMMM D, YYYY')}
                                     pob={pob}
                                     isEditMode={isEditMode}
-                                    toggleView={toggleView}
+                                    previewMode={previewMode}
                                     handleChange={handleChange}
                                 />
                                 <Experiences
+                                    error={error}
                                     experiences={experiences}
                                     isEditMode={isEditMode}
-                                    toggleView={toggleView}
+                                    previewMode={previewMode}
                                     handleChange={handleChange}
                                     handleAddInput={handleAddInput}
                                 />
                                 <LanguageSkills
+                                    error={error}
                                     languageSkills={languages}
                                     isEditMode={isEditMode}
-                                    toggleView={toggleView}
+                                    previewMode={previewMode}
                                     handleChange={handleChange}
                                     handleAddInput={handleAddInput}
                                 />
                                 <JobSkills
+                                    error={error}
                                     jobSkills={jobSkills}
                                     isEditMode={isEditMode}
-                                    toggleView={toggleView}
+                                    previewMode={previewMode}
                                     handleChange={handleChange}
                                     handleAddInput={handleAddInput}
                                 />
                                 <Educations
+                                    error={error}
                                     objname={'educations'}
                                     educations={education}
                                     isEditMode={isEditMode}
-                                    toggleView={toggleView}
+                                    previewMode={previewMode}
                                     handleChange={handleChange}
                                     handleAddInput={handleAddInput}
                                 />
-                                <MyTraits
+                               <MyTraits
+                                    error={error}
                                     traits={myTraits}
                                     isEditMode={isEditMode}
-                                    toggleView={toggleView}
+                                    previewMode={previewMode}
                                     handleChange={handleChange}
                                     handleAddInput={handleAddInput}
                                 />
                             </div>
                             <div className="col-md-8 ac-column d-flex flex-column 
                             pl-md-5 p-3 mt-sm-5 mt-md-0 d-sm-block">
-                                <Biography
+                                 <Biography
+                                    error={error}
                                     biography={biography}
                                     isEditMode={isEditMode}
-                                    toggleView={toggleView}
+                                    previewMode={previewMode}
                                     handleChange={handleChange}
                                 />
-                                <Projects
+                              <Projects
+                                    error={error}
                                     projects={experiencesProjects}
                                     isEditMode={isEditMode}
-                                    toggleView={toggleView}
+                                    previewMode={previewMode}
                                     handleChange={handleChange}
                                     handleAddInput={handleAddInput}
                                 />
@@ -140,7 +151,8 @@ function MainContainer(
                     </div>
                 </div>
 
-                <ActionButtons isEditMode={isEditMode} toggleView={toggleView} />
+                <ActionButtons isEditMode={isEditMode} editMode={editMode} previewMode={previewMode} />
+
             </div>
         </div>
     )

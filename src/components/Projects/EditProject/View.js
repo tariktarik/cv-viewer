@@ -2,12 +2,13 @@ import React from 'react';
 import InputField from '../../InputField/View';
 import TextField from '../../TextField/View';
 
-function EditProject({ id, company, position, period, description, toggleView, handleChange }) {
+function EditProject({ error, id, company, position, period, description, previewMode, handleChange }) {
 
     return (
         <div className="row">
 
             <InputField
+                error={error}
                 id={id}
                 objname={'experiencesProjects'}
                 className="form-control"
@@ -19,6 +20,7 @@ function EditProject({ id, company, position, period, description, toggleView, h
             />
 
             <InputField
+                error={error}
                 id={id}
                 objname={'experiencesProjects'}
                 className="form-control"
@@ -30,6 +32,7 @@ function EditProject({ id, company, position, period, description, toggleView, h
             />
 
             <InputField
+                error={error}
                 id={id}
                 objname={'experiencesProjects'}
                 className="form-control"
@@ -41,6 +44,7 @@ function EditProject({ id, company, position, period, description, toggleView, h
             />
 
             <TextField
+                error={error}
                 id={id}
                 objname={'experiencesProjects'}
                 className="form-control"
@@ -49,12 +53,12 @@ function EditProject({ id, company, position, period, description, toggleView, h
                 value={description}
                 placeholder={description}
                 handleChange={handleChange}
-            />
+            /> 
+ 
 
 
 
-
-            <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
+            <button type="submit" className="btn btn-primary form-control" onClick={previewMode}>Save</button>
 
         </div>
 

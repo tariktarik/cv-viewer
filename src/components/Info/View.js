@@ -2,7 +2,7 @@ import React from 'react';
 import PreviewInfo from './PreviewInfo/View';
 import EditInfo from './EditInfo/View';
 
-function Info({ error, firstName, lastName, position, email, isEditMode, toggleView, handleChange }) {
+function Info({ error, firstName, lastName, position, email, isEditMode, previewMode, handleChange }) {
 
   return (
     <div className="row mt-5">
@@ -17,8 +17,7 @@ function Info({ error, firstName, lastName, position, email, isEditMode, toggleV
               position={position}
               email={email}
               handleChange={handleChange}
-              isEditMode={isEditMode}
-              toggleView={toggleView}
+              previewMode={previewMode}
             />
             :
             <PreviewInfo firstName={firstName}

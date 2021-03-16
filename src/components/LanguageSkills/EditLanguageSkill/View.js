@@ -1,34 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import InputField from '../../InputField/View';
 
-function EditLanguageSkill({ id, language, grade, toggleView, handleChange }) {
+function EditLanguageSkill({ error, id, language, grade, previewMode, handleChange }) {
 
     return (
         <div className="row">
-
-            <input
-                customid={id}
-                customobjname={'languages'}
+            <InputField
+                error={error}
+                id={id}
+                objname={'languages'}
                 className="form-control"
                 type="text"
                 name={'language'}
                 value={language}
                 placeholder={language}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
-
-            <input
-                customid={id}
-                customobjname={'languages'}
+             <InputField
+                error={error}
+                id={id}
+                objname={'languages'}
                 className="form-control"
                 type="text"
                 name={'grade'}
                 value={grade}
                 placeholder={grade}
-                onChange={handleChange}
+                handleChange={handleChange}
             />
-
-
-            <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
+            <button type="submit" className="btn btn-primary form-control" onClick={previewMode}>Save</button>
 
         </div>
 

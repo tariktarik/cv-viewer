@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from '../../TextField/View';
 
-function EditBiography({ toggleView, biography, handleChange }) {
+function EditBiography({ error, previewMode, biography, handleChange }) {
 
     return (
         <>
@@ -9,6 +9,7 @@ function EditBiography({ toggleView, biography, handleChange }) {
              name={'biography'}
              value={biography}
              handleChange={handleChange}
+             error={error}
             />
             {/* <textarea
                 rows={8}
@@ -19,7 +20,7 @@ function EditBiography({ toggleView, biography, handleChange }) {
                 placeholder={biography}
                 onChange={handleChange}
             /> */}
-            <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
+            <button type="submit" className="btn btn-primary form-control" onClick={previewMode}>Save</button>
         </>
     )
 }

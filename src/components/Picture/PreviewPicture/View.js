@@ -1,8 +1,8 @@
 import React from 'react';
 
-function PreviewPicture({ toggleView}) {
+function PreviewPicture({ editMode }) {
     return (
-        <button className="btn btn-dark position-absolute ac-addphoto" onClick={toggleView}>
+        <button className="btn btn-dark position-absolute ac-addphoto" onClick={editMode}>
             Add Picture
         </button>
     )

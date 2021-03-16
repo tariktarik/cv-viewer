@@ -3,7 +3,7 @@ import EditProject from './EditProject/View'
 import PreviewProject from './PreviewProject/View';
 import AddInput from '../AddInput/View';
 
-function Projects({ projects, isEditMode, toggleView, handleChange, handleAddInput }) {
+function Projects({ error, projects, isEditMode, previewMode, handleChange, handleAddInput }) {
     return (
         <>
             <div className="row mt-5 d-flex flex-column">
@@ -17,13 +17,14 @@ function Projects({ projects, isEditMode, toggleView, handleChange, handleAddInp
             {projects.map((project) =>
                 isEditMode ?
                     <EditProject
+                        error={error}
                         company={project.company}
                         position={project.position}
                         period={project.period}
                         description={project.description}
                         key={project._id}
                         id={project._id}
-                        toggleView={toggleView}
+                        previewMode={previewMode}
                         handleChange={handleChange}
                     />
                     :

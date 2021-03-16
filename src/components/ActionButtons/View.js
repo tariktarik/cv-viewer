@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from './Button/View';
 
-function ActionButtons({ isEditMode, toggleView }) {
+function ActionButtons({ isEditMode, editMode, previewMode }) {
   /* const [editButtons,setEditButtons] = useState(isEditMode); */
   
   return (
@@ -9,7 +9,7 @@ function ActionButtons({ isEditMode, toggleView }) {
       <div className="col-md-12 justify-content-center">
         <div className="row">
           {!isEditMode ?
-            <button className="btn btn-outline-primary ac-w-18 btn-mobile" onClick={toggleView}>
+            <button className="btn btn-outline-primary ac-w-18 btn-mobile" onClick={editMode}>
               Exit preview
           </button>
             : null
@@ -23,7 +23,7 @@ function ActionButtons({ isEditMode, toggleView }) {
               <Button text={'Send Link'} />
             </>
             :
-            <button className="btn btn-primary ml-auto ac-w-18 btn-mobile" onClick={toggleView}>
+            <button className="btn btn-primary ml-auto ac-w-18 btn-mobile" onClick={previewMode}>
               Save version
          </button>
           }

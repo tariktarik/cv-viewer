@@ -2,7 +2,7 @@ import React from 'react';
 import EditPicture from './EditPicture/View';
 import PreviewPicture from './PreviewPicture/View';
 
-function Picture({ picture, toggleView, isEditMode, handleChange }) {
+function Picture({ error, picture, previewMode, editMode, isEditMode, handleChange }) {
 
   return (
     <div className="row mt-3 position-relative">
@@ -14,12 +14,13 @@ function Picture({ picture, toggleView, isEditMode, handleChange }) {
 
       {isEditMode ?
         <EditPicture
-          toggleView={toggleView}
+          error={error}
+          previewMode={previewMode}
           picture={picture}
           handleChange={handleChange}
         />
         :
-        <PreviewPicture toggleView={toggleView} />
+        <PreviewPicture editMode={editMode} />
 
       }
     </div>

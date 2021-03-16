@@ -1,6 +1,6 @@
 import React from 'react'
 
-function InputField({ type, id, objname, name, value, handleChange, error }) {
+function InputField({ error, type, id, objname, name, value, handleChange }) {
 
     return (
         <>
@@ -12,7 +12,15 @@ function InputField({ type, id, objname, name, value, handleChange, error }) {
                 placeholder={value}
                 onChange={(e) => handleChange(e, id, objname)}
             />
-            {error ? <p>{error}</p> : null}
+            {error[name] ? error[name] : null}
+            {
+                objname &&
+                    error[objname][name] &&
+                    error[objname]._id === id ?
+                    error[objname][name] :
+                    null
+            }
+
         </>
 
     )

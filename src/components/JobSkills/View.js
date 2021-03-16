@@ -4,7 +4,7 @@ import PreviewJobSkill from './PreviewJobSkill/View';
 import AddInput from '../AddInput/View';
 
 
-function JobSkills({ jobSkills, isEditMode, toggleView, handleChange, handleAddInput }) {
+function JobSkills({ error, jobSkills, isEditMode, previewMode, handleChange, handleAddInput }) {
 
   return (
     <>
@@ -20,10 +20,11 @@ function JobSkills({ jobSkills, isEditMode, toggleView, handleChange, handleAddI
       {jobSkills.map((jobSkill =>
         isEditMode ?
           <EditJobSKill
+            error={error}
             skill={jobSkill.skill}
             grade={jobSkill.grade}
             id={jobSkill._id}
-            toggleView={toggleView}
+            previewMode={previewMode}
             handleChange={handleChange}
             key={jobSkill._id}
           />

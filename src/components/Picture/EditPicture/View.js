@@ -1,7 +1,7 @@
 import React from 'react';
 import InputField from '../../InputField/View';
 
-function EditPicture({ picture, toggleView, handleChange }) {
+function EditPicture({ error, picture, previewMode, handleChange }) {
 
   return (
     <>
@@ -10,9 +10,10 @@ function EditPicture({ picture, toggleView, handleChange }) {
           name={'picture'}
           value={picture}
           handleChange={handleChange}
+          error={error}
         />
       }
-      <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
+      <button type="submit" className="btn btn-primary form-control" onClick={previewMode}>Save</button>
     </>
 
   )

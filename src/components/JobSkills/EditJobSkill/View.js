@@ -1,7 +1,7 @@
 import React from 'react';
 import InputField from '../../InputField/View';
 
-function EditJobSkill({ id, skill, grade, toggleView, handleChange }) {
+function EditJobSkill({ error, id, skill, grade, previewMode, handleChange }) {
 
     return (
         <div className="row">
@@ -15,6 +15,7 @@ function EditJobSkill({ id, skill, grade, toggleView, handleChange }) {
                 value={skill}
                 placeholder={skill}
                 handleChange={handleChange}
+                error={error}
             />
 
             <InputField
@@ -26,10 +27,11 @@ function EditJobSkill({ id, skill, grade, toggleView, handleChange }) {
                 value={grade}
                 placeholder={grade}
                 handleChange={handleChange}
+                error={error}
             />
 
 
-            <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
+            <button type="submit" className="btn btn-primary form-control" onClick={previewMode}>Save</button>
 
         </div>
     )
