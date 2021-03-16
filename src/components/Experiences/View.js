@@ -3,7 +3,7 @@ import PreviewExperience from './PreviewExperience/View';
 import EditExperience from './EditExperience/View';
 import AddInput from '../AddInput/View';
 
-function Experiences({ experiences, isEditMode, toggleView, handleChange, handleAddInput }) {
+function Experiences({ error, experiences, isEditMode, previewMode, handleChange, handleAddInput }) {
 
     return (
         <>
@@ -20,8 +20,9 @@ function Experiences({ experiences, isEditMode, toggleView, handleChange, handle
             {experiences.map((experience) =>
                 isEditMode ?
                     <EditExperience
+                        error={error}
                         objName={'experience'}
-                        toggleView={toggleView}
+                        previewMode={previewMode}
                         id={experience._id}
                         position={experience.position}
                         duration={experience.duration}
@@ -31,6 +32,7 @@ function Experiences({ experiences, isEditMode, toggleView, handleChange, handle
                     />
                     :
                     <PreviewExperience
+                        
                         position={experience.position}
                         duration={experience.duration}
                         key={experience._id}

@@ -35,11 +35,56 @@ function App() {
 
   }, [])
 
-  const toggleView = () => setEditMode(!isEditMode);
+  const editMode = () => {
+    setEditMode(true)
+  };
+
+
+
+  const previewMode = () => {
+    const dataArray = Object.keys(data);
+    const errorObj = {}
+    const objectObj = {}
+
+    dataArray.forEach((ele) => {
+      if (typeof data[ele] === 'string' && data[ele] === '') {
+        errorObj[ele] = `${[ele]} error`
+      }
+      if (typeof data[ele] === 'object') {
+        data[ele].map((item) => (
+          Object.keys(item).map((input) =>
+            item[input] === '' ? objectObj[ele] = {
+              ...objectObj[ele], _id: item._id, [input]: `${[input]} error`
+            }
+              : null)
+        ))
+
+      }
+
+    })
+
+    if (Object.keys(errorObj).length > 0) {
+      setError({ ...error, ...errorObj })
+    }
+
+    if (Object.keys(objectObj).length > 0) {
+      Object.keys(objectObj).map((ele) =>
+        setError({ ...error, [ele]: objectObj[ele] })
+      )
+    }
+
+    if (Object.keys(errorObj).length < 1 && Object.keys(objectObj).length < 1) {
+      setEditMode(false)
+    }
+
+  }
+
 
   const handleChange = (e, id, objname) => {
 
     const { target: { name, value } } = e;
+
+    error[name] = '';  // Da li na ispravan nacin, na pravom mjestu resetujem error polje?
 
 
     if (id) {
@@ -59,7 +104,7 @@ function App() {
 
 
     }
- 
+
   }
 
 
@@ -97,7 +142,8 @@ function App() {
 
         />
         <MainContainer
-          toggleView={toggleView}
+          editMode={editMode}
+          previewMode={previewMode}
           isEditMode={isEditMode}
           data={data}
           error={error}

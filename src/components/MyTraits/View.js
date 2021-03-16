@@ -3,7 +3,7 @@ import EditTrait from './EditTrait/View'
 import PreviewTrait from './PreviewTrait/View';
 import AddInput from '../AddInput/View';
 
-function MyTraits({ traits, isEditMode, toggleView, handleChange, handleAddInput }) {
+function MyTraits({ error, traits, isEditMode, previewMode, handleChange, handleAddInput }) {
   return (
     <>
       <div className="row mt-5 d-flex flex-column">
@@ -18,10 +18,11 @@ function MyTraits({ traits, isEditMode, toggleView, handleChange, handleAddInput
         {traits.map((trait) => (
           isEditMode ?
             <EditTrait
+            error={error}
               trait={trait.trait}
               id={trait._id}
               key={trait._id}
-              toggleView={toggleView}
+              previewMode={previewMode}
               handleChange={handleChange} />
             :
             <PreviewTrait trait={trait.trait} key={trait._id} />

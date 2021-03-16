@@ -3,7 +3,7 @@ import EditLanguageSkill from './EditLanguageSkill/View'
 import PreviewLanguageSkill from './PreviewLanguageSkill/View';
 import AddInput from '../AddInput/View';
 
-function LanguageSkills({ languageSkills, isEditMode, toggleView, handleChange, handleAddInput }) {
+function LanguageSkills({ error, languageSkills, isEditMode, previewMode, handleChange, handleAddInput }) {
     return (
         <>
             <div className="row mt-5 d-flex flex-column">
@@ -17,10 +17,11 @@ function LanguageSkills({ languageSkills, isEditMode, toggleView, handleChange, 
             {languageSkills.map((languageSkill) =>
                 isEditMode ?
                     <EditLanguageSkill
+                        error={error}
                         id={languageSkill._id}
                         language={languageSkill.language}
                         grade={languageSkill.grade}
-                        toggleView={toggleView}
+                        previewMode={previewMode}
                         handleChange={handleChange}
                         key={languageSkill._id}
                     />

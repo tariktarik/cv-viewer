@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Button({className, text}){
+function Button({className, text, downloadPDF}){
     return (
-        <button className={className}>
+        <button className={className} onClick={downloadPDF}>
       {text}
     </button>
 

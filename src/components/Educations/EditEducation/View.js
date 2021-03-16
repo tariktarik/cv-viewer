@@ -1,7 +1,7 @@
 import React from 'react';
 import InputField from '../../InputField/View';
 
-function EditEducations({ toggleView, id, school, degree, period, handleChange }) {
+function EditEducations({ error, previewMode, id, school, degree, period, handleChange }) {
 
     return (
         <div className="row">
@@ -15,6 +15,7 @@ function EditEducations({ toggleView, id, school, degree, period, handleChange }
                 value={school}
                 placeholder={school}
                 handleChange={handleChange}
+                error={error}
             />
             <InputField
                 id={id}
@@ -25,6 +26,7 @@ function EditEducations({ toggleView, id, school, degree, period, handleChange }
                 value={degree}
                 placeholder={degree}
                 handleChange={handleChange}
+                error={error}
             />
             <InputField
                 id={id}
@@ -35,9 +37,10 @@ function EditEducations({ toggleView, id, school, degree, period, handleChange }
                 value={period}
                 placeholder={period}
                 handleChange={handleChange}
+                error={error}
             />
 
-            <button type="submit" className="btn btn-primary form-control" onClick={toggleView}>Save</button>
+            <button type="submit" className="btn btn-primary form-control" onClick={previewMode}>Save</button>
         </div>
     )
 }
