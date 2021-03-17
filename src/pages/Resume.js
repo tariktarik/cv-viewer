@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import './TESTCSS.css';
 
-import Header from './Header/View';
-import MainContainer from './MainContainer/View'
+import MainContainer from '../components/MainContainer/View'
 
-function App() {
+function Resume() {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [error, setError] = useState({
@@ -26,10 +25,11 @@ function App() {
     myTraits: { trait: '' },
     experiencesProjects: { company: '', position: '', period: '', description: '' }
   })
+  let { id } = useParams();
   const [isEditMode, setEditMode] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/resumes/5fbee248eb620e488cfc11f8')
+    axios.get(`http://localhost:5000/resumes/${id}`)
       .then(response => setData(response.data))
     setLoading(false);
 
@@ -38,8 +38,6 @@ function App() {
   const editMode = () => {
     setEditMode(true)
   };
-
-
 
   const previewMode = () => {
     const dataArray = Object.keys(data);
@@ -79,7 +77,6 @@ function App() {
 
   }
 
-
   const handleChange = (e, id, objname) => {
 
     const { target: { name, value } } = e;
@@ -101,10 +98,7 @@ function App() {
         ...data,
         [name]: value
       })
-
-
     }
-
   }
 
 
@@ -130,30 +124,18 @@ function App() {
   return (
 
     <>
-
-      <div className="container-fluid">
-        <Header
-          nav={
-            {
-              username: 'Tarik',
-              profilePicture: ''
-            }
-          }
-
-        />
-        <MainContainer
-          editMode={editMode}
-          previewMode={previewMode}
-          isEditMode={isEditMode}
-          data={data}
-          error={error}
-          handleChange={handleChange}
-          handleAddInput={handleAddInput}
-        />
-      </div>
+      <MainContainer
+        editMode={editMode}
+        previewMode={previewMode}
+        isEditMode={isEditMode}
+        data={data}
+        error={error}
+        handleChange={handleChange}
+        handleAddInput={handleAddInput}
+      />
     </>
   );
 }
 
 
-export default App;
+export default Resume;
