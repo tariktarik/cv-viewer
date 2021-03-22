@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from "react-router-dom";
 
 import './TESTCSS.css';
@@ -33,12 +34,17 @@ function App() {
       .then(data => data.json())
   }
 
+  const logout = () => {
+    setToken(null)
+  }
+
   const handleSubmit = async e => {
     e.preventDefault();
     const data = await loginUser({
       email,
       password
     });
+    console.log(data)
     setToken(data.token)
   }
 
@@ -49,36 +55,40 @@ function App() {
       <div className="container-fluid">
 
         <Router>
-          {token ? <Header
-            nav={
-              {
-                username: 'Tarik',
-                profilePicture: ''
-              }
-            }
+          {token ?
+            <Header
+              nav={
+                {
+                  username: 'Tarik',
+                  profilePicture: ''
+                }
 
-          /> : null}
+              }
+              logout={logout}
+
+            />
+            : null}
 
           <Switch>
 
             <Route exact path="/">
-              <Resumes />
+              {!token ? <Redirect to="/login" /> : <Resumes />}
             </Route>
             <Route exact path="/createcv">
-              <CreateCv />
+              {!token ? <Redirect to="/login" /> : <CreateCv />}
             </Route>
             <Route exact path="/mydrafts">
-              <MyDrafts />
+              {!token ? <Redirect to="/login" /> : <MyDrafts />}
             </Route>
             <Route exact path="/instructions">
-              <Instructions />
+              {!token ? <Redirect to="/login" /> : <Instructions />}
             </Route>
 
             <Route exact path="/resumes/:id">
-              <Resume />
+              {!token ? <Redirect to="/login" /> : <Resume />}
             </Route>
             <Route exact path="/login">
-              <Login setEmail={setEmail} setPassword={setPassword} handleSubmit={handleSubmit} />
+              {token ? <Redirect to="/" /> : <Login setEmail={setEmail} setPassword={setPassword} handleSubmit={handleSubmit} />}
             </Route>
 
           </Switch>
