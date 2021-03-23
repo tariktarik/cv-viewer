@@ -24,7 +24,7 @@ function App() {
     <>
       <div className="container-fluid">
         <Router>
-        {localStorage.getItem('token') ?
+          {localStorage.getItem('token') ?
             <Header
               nav={
                 {
@@ -35,14 +35,13 @@ function App() {
             />
             : null}
           <Switch>
-          
             <PrivateRoute exact path="/" comp={Resumes} />
             <PrivateRoute exact path="/createcv" comp={CreateCv} />
             <PrivateRoute exact path="/mydrafts" comp={MyDrafts} />
             <PrivateRoute exact path="/instructions" comp={Instructions} />
             <PrivateRoute exact path="/resumes/:id" comp={Resume} />
             <Route exact path="/login">
-              {localStorage.getItem('token') ? <Redirect to="/" /> : <LoginPage />}
+              <LoginPage />
             </Route>
             <Route path="*" component={NotFound} />
           </Switch>
