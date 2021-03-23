@@ -1,14 +1,14 @@
 import React from "react"
 import { Route, Redirect } from "react-router-dom"
 
-const PrivateRoute = ({ render: Component, isLogin, ...rest }) => {
-  // Add your own authentication on the below line.
-  
+const PrivateRoute = ({ comp: Component, ...rest }) => {
+  const userIsLoggedIn = () => localStorage.getItem('token');
+
   return (
     <Route
       {...rest}
       render={(props) =>
-        isLogin ? (
+        userIsLoggedIn() ? (
           <>
             <Component {...props} />
           </>
