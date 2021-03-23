@@ -7,7 +7,7 @@ function Resumes() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/resumes')
+    axios.get(`${process.env.REACT_APP_API_URL}/resumes`)
       .then(response => setData(response.data))
     setLoading(false);
 

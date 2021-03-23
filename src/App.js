@@ -1,96 +1,50 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
+
 } from "react-router-dom";
 
-import './TESTCSS.css';
-
-import Login from './pages/Login';
+import PrivateRoute from './PrivateRoute';
+import LoginPage from './pages/LoginPage';
 import Resumes from './pages/Resumes';
 import Resume from './pages/Resume';
-
 import CreateCv from './pages/CreateCv';
 import MyDrafts from './pages/MyDrafts';
 import Instructions from './pages/Instructions';
+import NotFound from './pages/NotFound'
 import Header from './components/Header/View';
 
+import './TESTCSS.css';
 function App() {
 
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [token, setToken] = useState(null);
-
-  async function loginUser(credentials) {
-    return fetch('http://localhost:5000/users/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(credentials)
-    })
-      .then(data => data.json())
-  }
-
-  const logout = () => {
-    setToken(null)
-  }
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    const data = await loginUser({
-      email,
-      password
-    });
-    console.log(data)
-    setToken(data.token)
-  }
-
-
   return (
-
     <>
       <div className="container-fluid">
-
         <Router>
-          {token ?
+        {localStorage.getItem('token') ?
             <Header
               nav={
                 {
                   username: 'Tarik',
                   profilePicture: ''
                 }
-
               }
-              logout={logout}
-
             />
             : null}
-
           <Switch>
-
-            <Route exact path="/">
-              {!token ? <Redirect to="/login" /> : <Resumes />}
-            </Route>
-            <Route exact path="/createcv">
-              {!token ? <Redirect to="/login" /> : <CreateCv />}
-            </Route>
-            <Route exact path="/mydrafts">
-              {!token ? <Redirect to="/login" /> : <MyDrafts />}
-            </Route>
-            <Route exact path="/instructions">
-              {!token ? <Redirect to="/login" /> : <Instructions />}
-            </Route>
-
-            <Route exact path="/resumes/:id">
-              {!token ? <Redirect to="/login" /> : <Resume />}
-            </Route>
+          
+            <PrivateRoute exact path="/" comp={Resumes} />
+            <PrivateRoute exact path="/createcv" comp={CreateCv} />
+            <PrivateRoute exact path="/mydrafts" comp={MyDrafts} />
+            <PrivateRoute exact path="/instructions" comp={Instructions} />
+            <PrivateRoute exact path="/resumes/:id" comp={Resume} />
             <Route exact path="/login">
-              {token ? <Redirect to="/" /> : <Login setEmail={setEmail} setPassword={setPassword} handleSubmit={handleSubmit} />}
+              {localStorage.getItem('token') ? <Redirect to="/" /> : <LoginPage />}
             </Route>
-
+            <Route path="*" component={NotFound} />
           </Switch>
         </Router>
       </div>
