@@ -15,7 +15,7 @@ db.once('open', () => console.log('Connected to db'));
 
 const app = express();
 app.use(cors())
-const PORT = 5000;
+const PORT = proccess.env.PORT || 5000;
 app.use(bodyParser.json());
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
