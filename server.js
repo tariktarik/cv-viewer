@@ -8,7 +8,7 @@ import resumesRoutes from './routes/resumes.js';
 
 dotenv.config();
 
-mongoose.connect('mongodb://localhost/ant_resume', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+mongoose.connect('mongodb+srv://tarik:tarik@ant.ho07e.mongodb.net/ant_viewer?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 const db = mongoose.connection;
 db.on('error', (error) => console.log(error));
 db.once('open', () => console.log('Connected to db'));
