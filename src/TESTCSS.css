@@ -81,6 +81,10 @@ li.event::before {
     list-style-type: none;
     padding-inline-start: 0px;
   }
+
+  .ac-w-18 {
+    width: 30%;
+  }
 }
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
@@ -343,7 +347,6 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  
 }
 
 button,

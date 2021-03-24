@@ -51,7 +51,6 @@ function Login() {
 
     if (user.token) {
       localStorage.setItem('token', user.token);
-      console.log("bring back :  ", user)
       history.push('/');
     }
   }
