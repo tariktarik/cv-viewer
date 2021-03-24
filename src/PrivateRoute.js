@@ -1,5 +1,6 @@
-import React from "react"
-import { Route, Redirect } from "react-router-dom"
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import Header from './components/Header/View';
 
 const PrivateRoute = ({ comp: Component, ...rest }) => {
   const userIsLoggedIn = () => localStorage.getItem('token');
@@ -10,6 +11,17 @@ const PrivateRoute = ({ comp: Component, ...rest }) => {
       render={(props) =>
         userIsLoggedIn() ? (
           <>
+            <Header
+              nav={
+                {
+                  username: 'Tarik',
+                  profilePicture: ''
+                }
+              }
+
+
+            />
+
             <Component {...props} />
           </>
         ) : (

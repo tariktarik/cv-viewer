@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 function Nav({ nav }) {
   const { username, profilePicture } = nav;
-
-const logout = () => {
-  localStorage.removeItem('token')
-}
+  const history = useHistory();
+  const logout = () => {
+    localStorage.removeItem('token');
+    history.push("/login")
+  }
   return (
 
     <nav className="navbar navbar-light navbar-expand-sm">
@@ -43,9 +44,9 @@ const logout = () => {
         </ul>
         <ul className="nav navbar-nav ml-auto justify-content-end">
           <li className="nav-item">
-            <Link onClick={logout} to={"/login"} className="btn btn-light ac-logout">
+            <button onClick={logout} className="btn btn-light ac-logout">
               Logout
-          </Link>
+          </button>
           </li>
         </ul>
       </div>

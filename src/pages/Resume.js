@@ -29,7 +29,7 @@ function Resume() {
   const [isEditMode, setEditMode] = useState(true);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/resumes/${id}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/resumes/${id}`)
       .then(response => setData(response.data))
     setLoading(false);
 

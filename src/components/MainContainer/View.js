@@ -77,6 +77,7 @@ function MainContainer(
                                     picture={picture}
                                     previewMode={previewMode}
                                     isEditMode={isEditMode}
+                                    editMode={editMode}
                                     handleChange={handleChange} />
                                 <PersonalInfo
                                     error={error}

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-
 import { useHistory } from 'react-router-dom';
 
 function Login() {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const [errorEmail, setErrorEmail] = useState('')
   const [errorPassword, setErrorPassword] = useState('')
@@ -37,35 +36,56 @@ function Login() {
 
   const handleSubmit = async e => {
     e.preventDefault();
-
+    
     const user = await loginUser({
       email,
       password
     });
-    
+
+    if(email.length < 1){
+      setErrorEmail('Please input email!')
+    }
+    if(password.length < 1){
+      setErrorPassword('Please input password!')
+    }
+
     if (user.token) {
       localStorage.setItem('token', user.token);
-      console.log("bring back :  ",user)
+      console.log("bring back :  ", user)
       history.push('/');
-    } 
+    }
   }
 
   return (
     <>
       <h1> Login Page! </h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <p>Email</p>
-          <input type="text" onChange={e => setEmail(e.target.value)} />
-          {errorEmail ? errorEmail : null}
-        </label>
-        <label>
-          <p>Password</p>
-          <input type="password" onChange={e => setPassword(e.target.value)} />
-          {errorPassword ? errorPassword : null}
-        </label>
+      <form onSubmit={handleSubmit} className="w-25">
+        <div className="form-group">
+          <label htmlFor="email">
+            <p>Email</p>
+          </label>
+          <input
+            type="text"
+            autoComplete="username"
+            className="form-control"
+            onChange={e => setEmail(e.target.value)} />
+          {errorEmail ? <span className="text-danger">{errorEmail}</span> : null}
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">
+            <p>Password</p>
+          </label>
+          <input
+            type="password"
+            autoComplete="current-password"
+            className="form-control"
+            onChange={e => setPassword(e.target.value)} />
+            {errorPassword ? <span className="text-danger">{errorPassword}</span> : null}
+
+
+        </div>
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit" className="btn btn-primary">Submit</button>
         </div>
       </form>
 
