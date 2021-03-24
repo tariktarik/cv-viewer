@@ -29,10 +29,12 @@ function App() {
             <PrivateRoute exact path="/mydrafts" comp={MyDrafts} />
             <PrivateRoute exact path="/instructions" comp={Instructions} />
             <PrivateRoute exact path="/resumes/:id" comp={Resume} />
+            
             <Route exact path="/login">
               <LoginPage/>
             </Route>
             <Route path="*" component={NotFound} />
+           
           </Switch>
         </Router>
       </div>
