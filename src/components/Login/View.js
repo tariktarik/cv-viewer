@@ -36,16 +36,16 @@ function Login() {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    
+
     const user = await loginUser({
       email,
       password
     });
 
-    if(email.length < 1){
+    if (email.length < 1) {
       setErrorEmail('Please input email!')
     }
-    if(password.length < 1){
+    if (password.length < 1) {
       setErrorPassword('Please input password!')
     }
 
@@ -58,14 +58,24 @@ function Login() {
 
   return (
     <>
-      <h1> Login Page! </h1>
-      <form onSubmit={handleSubmit} className="w-25">
+      <div className="mb-5 text-center">
+        <img
+          src={'logo.png'}
+          width="120"
+          height="120"
+          alt="Logo"
+          loading="lazy"
+        />
+      </div>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">
-            <p>Email</p>
+            Email
           </label>
           <input
+            autoFocus={true}
             type="text"
+            placeholder="Input your email"
             autoComplete="username"
             className="form-control"
             onChange={e => setEmail(e.target.value)} />
@@ -73,20 +83,23 @@ function Login() {
         </div>
         <div className="form-group">
           <label htmlFor="password">
-            <p>Password</p>
+            Password
           </label>
           <input
             type="password"
+            placeholder="Input your passsword"
             autoComplete="current-password"
             className="form-control"
             onChange={e => setPassword(e.target.value)} />
-            {errorPassword ? <span className="text-danger">{errorPassword}</span> : null}
+          {errorPassword ? <span className="text-danger">{errorPassword}</span> : null}
 
 
         </div>
-        <div>
-          <button type="submit" className="btn btn-primary">Submit</button>
+
+        <div className="text-center">
+          <button type="submit" className="btn btn-primary w-100">Submit</button>
         </div>
+
       </form>
 
     </>
