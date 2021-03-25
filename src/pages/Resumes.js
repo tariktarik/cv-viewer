@@ -35,7 +35,7 @@ function Resumes() {
               <td>{resume.position}</td>
               <td><Link
                 to={`resumes/${resume._id}`}
-                className="btn btn-light btn-outline-primary w-75"
+                className="btn btn-light btn-outline-primary w-100"
                 type="button"
               >
                 Open

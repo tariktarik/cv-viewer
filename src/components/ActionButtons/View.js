@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from './Button/View';
 
 function ActionButtons({ isEditMode, editMode, previewMode }) {
   /* const [editButtons,setEditButtons] = useState(isEditMode); */
-  
+
   return (
     <div className="row my-5">
       <div className="col-md-12 justify-content-center">

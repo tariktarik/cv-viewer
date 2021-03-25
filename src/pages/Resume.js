@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
+
 import MainContainer from '../components/MainContainer/View'
 
 function Resume() {
@@ -124,18 +125,22 @@ function Resume() {
   return (
 
     <>
-      <MainContainer
-        editMode={editMode}
-        previewMode={previewMode}
-        isEditMode={isEditMode}
-        data={data}
-        error={error}
-        handleChange={handleChange}
-        handleAddInput={handleAddInput}
-      />
+      
+          <MainContainer
+            editMode={editMode}
+            previewMode={previewMode}
+            isEditMode={isEditMode}
+            data={data}
+            error={error}
+            handleChange={handleChange}
+            handleAddInput={handleAddInput}
+          />
+
+      
     </>
   );
 }
+
 
 
 export default Resume;

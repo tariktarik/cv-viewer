@@ -22,7 +22,7 @@ function MainContainer(
         data,
         error,
         handleChange,
-        handleAddInput
+        handleAddInput,
     }) {
 
     if (!data) {
